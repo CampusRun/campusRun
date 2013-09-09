@@ -5,17 +5,17 @@ function Object(){
   this.width = 1000;
   this.height = 1000;
   //draw to
-  this.drawX = 280;
+  this.drawX = 180;
   this.drawY = 120;
 
   //settings
-  this.speed = 1;
+  //this.speed = 1;
 }
 
 
 Object.prototype.draw = function(){
   clearCtxObject();
-  this.drawX -= this.speed;
+  //this.drawX -= this.speed;
   ctxObject.drawImage(block, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, 20, 20);
   this.recycle(); 
 };

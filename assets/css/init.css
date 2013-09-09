@@ -3,6 +3,7 @@ body{
 }
 
 canvas {
+  /**1024x576**/
   width: 1000px;
   height: 500px;
   display: block;
@@ -13,6 +14,6 @@ canvas {
   background-color: white;
 }
 
-#canvasObject {
+#canvasObject, #canvasPlayer  {
   margin: -500px auto 0px;
 }
