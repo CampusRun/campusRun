@@ -11,18 +11,15 @@ ctxObject = canvasObject.getContext('2d');
 //Images
 //set Background
 var background = new Image();
-background.src = 'assets/img/sky.jpg';
+background.src = 'assets/img/background03.jpg';
 
 //set menu 1200*1200px
 var menu = new Image()
 menu.src = 'assets/img/test.gif';
 
 //set Player
-var playerRight = new Image();
-playerRight.src = 'assets/img/run_right.png'
-
-var playerLeft = new Image();
-playerLeft.src = 'assets/img/run_left.png'
+var playerImg = new Image();
+playerImg.src = 'assets/img/figur_test_02.png'
 
 //set object
 var block = new Image();
@@ -47,7 +44,10 @@ var requestAnimFrame =  window.requestAnimationFrame ||
 
 function init() {
   drawMenu();
+  
   player = new Player();
+  bgLayers = new BgLayers();
+
   gameOn = true;
   playGame();
   document.addEventListener('click', mouseClicked, false)
@@ -59,14 +59,15 @@ function drawMenu() {
 }
 
 function playGame() {
-  ctxBg.drawImage(background, 0,0, 1680, 1050, 0, 0, 320, 200);
   object = new Object();
   gameLoopStart();
-
 }
 
 function gameLoopStart(){
-  if(gameOn){//draw player
+  if(gameOn){
+    //draw background
+    bgLayers.draw();
+    //draw player
     player.draw();
     //draw objects
     object.draw();
@@ -83,16 +84,6 @@ function gameLoopStop(){
 
 function checkKeyDown(e){
   //check keyCode
-  if (e.keyCode == 37) { // 'arrowLeft'
-    player.leftKeyPressed = true;
-    e.preventDefault();
-  }
-
-  if (e.keyCode == 39) { // arrowRight
-    player.rightKeyPressed = true;
-    e.preventDefault();
-  }
-
   if (e.keyCode == 32){ //spaceBar
     player.spaceBar = true;
     e.preventDefault();
@@ -102,20 +93,6 @@ function checkKeyDown(e){
 
 function checkKeyUp(e){
   //check keyCode
-  if (e.keyCode == 37) { // 'arrowLeft'
-    player.leftKeyPressed = false;
-    e.preventDefault();
-  }
-
-  if (e.keyCode == 38) { // 'arrowUp'
-    //player.isJumping = false;
-    e.preventDefault();
-  }
-
-  if (e.keyCode == 39) { // arrowRight
-    player.rightKeyPressed = false;
-    e.preventDefault();
-  }
 }
 
 

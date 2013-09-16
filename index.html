@@ -7,12 +7,17 @@
 <script src='assets/js/button.js'></script>
 <script src='assets/js/object.js'></script>
 <script src='assets/js/player.js'></script>
+<script src='assets/js/bglayers.js'></script>
 
 </head>
 <body>
+  <button onclick="gameOn=true; gameLoopStart()">Start</button>
+  <button onclick="gameLoopStop()">Stop</button>
+
   <canvas id='canvasBg'></canvas>
   <canvas id='canvasPlayer'></canvas>
   <canvas id='canvasObject'></canvas> 
+  
   <script src= 'assets/js/init.js'></script>
 </body>
 </html>

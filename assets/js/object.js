@@ -8,15 +8,17 @@ function Object(){
   this.drawX = 180;
   this.drawY = 120;
 
+  this.drawWidth = 20;
+  this.drawHeight = 20;
   //settings
-  //this.speed = 1;
+  this.speed = 1;
 }
 
 
 Object.prototype.draw = function(){
   clearCtxObject();
-  //this.drawX -= this.speed;
-  ctxObject.drawImage(block, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, 20, 20);
+  this.drawX -= this.speed;
+  ctxObject.drawImage(block, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.drawWidth, this.drawHeight);
   this.recycle(); 
 };
 
