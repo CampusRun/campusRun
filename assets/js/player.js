@@ -19,7 +19,6 @@ function Player(){
 
   //settings
   this.baseLineY = 140;
-  this.grounded = false;
   this.falling = false;
   this.jumping = false;
   this.jumpSpeed = 1;
@@ -34,7 +33,7 @@ Player.prototype.draw = function(drawX, drawY){
   //Jumping Animation
   if(this.jumping){
 
-    if( (this.falling && !playerCollisionY(this, object) ) || (this.drawY <= this.baseLineY - this.jumpHeight && !this.grounded)  ){ //falling
+    if( (this.falling && !playerCollisionY(this, object) ) || (this.drawY <= this.baseLineY - this.jumpHeight)){ //falling
       if(this.drawY + this.height >= this.baseLineY){ //landed on the ground
         this.falling = false;
         this.jumping = false; 
