@@ -85,7 +85,7 @@ function gameLoopStop(){
 function checkKeyDown(e){
   //check keyCode
   if (e.keyCode == 32){ //spaceBar
-    player.spaceBar = true;
+    player.jumping = true;
     e.preventDefault();
   }
 }
