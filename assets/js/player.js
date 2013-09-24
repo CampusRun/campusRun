@@ -29,6 +29,13 @@ function Player(){
 
 Player.prototype.draw = function(drawX, drawY){
   clearCtxPlayer();
+
+  if(this.drawX<=0){
+    gameLoopStop();
+    alert("You Loose, you Suck! :D");
+    location.reload();
+  }
+  
   /*this.frames += 1;
   var playerImg = playerRight;
   var dt = 0.004;
