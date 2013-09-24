@@ -22,9 +22,9 @@ function BgLayers(){
   this.topSpeed = 0.3;
 
   this.middleSrcY = 218;
-  this.middleSrcWidth = 5000;
+  this.middleSrcWidth = 3000;
   this.middleSrcHeight = 258;
-  this.middleDrawWidth = 1000;
+  this.middleDrawWidth = 1024;
   this.middleDrawHeight = 95;
   this.middleDrawX = 0;
   this.middleDrawY = 40; 

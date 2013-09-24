@@ -15,7 +15,7 @@ background.src = 'assets/img/background03.jpg';
 
 //set menu 1200*1200px
 var menu = new Image()
-menu.src = 'assets/img/test.gif';
+menu.src = '';
 
 //set Player
 var playerImg = new Image();
