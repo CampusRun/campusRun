@@ -11,8 +11,8 @@ function Player(){
   //src from
   this.srcX = 0;
   this.srcY = 0;
-  this.width = 24;
-  this.height = 60;
+  this.width = 18;
+  this.height = 44;
   //draw to
   this.drawX = 80;
   this.drawY = 80;
@@ -22,7 +22,7 @@ function Player(){
   this.falling = false;
   this.jumping = false;
   this.jumpSpeed = 2;
-  this.jumpHeight = 100;
+  this.jumpHeight = 80;
 
   this.frames = 0;
 }
@@ -66,8 +66,8 @@ Player.prototype.draw = function(drawX, drawY){
 
   //Runnung Animation
   this.frames += 1;
-  if(this.frames > 4){ this.srcX += 24; this.frames = 0; }
-  if(this.srcX >=  96) this.srcX = 0;
+  if(this.frames > 4){ this.srcX += 18; this.frames = 0; }
+  if(this.srcX >=  72) this.srcX = 0;
 
   ctxPlayer.drawImage(playerImg, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
 };
