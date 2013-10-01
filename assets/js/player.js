@@ -21,7 +21,7 @@ function Player(){
   this.baseLineY = 140;
   this.falling = false;
   this.jumping = false;
-  this.jumpSpeed = 1;
+  this.jumpSpeed = 2;
   this.jumpHeight = 100;
 
   this.frames = 0;
@@ -29,6 +29,12 @@ function Player(){
 
 Player.prototype.draw = function(drawX, drawY){
   clearCtxPlayer();
+
+  if(this.drawX<=0){
+    gameLoopStop();
+    alert("You Loose, you Suck! :D");
+    location.reload();
+  }
 
   //Jumping Animation
   if(this.jumping){
@@ -60,7 +66,7 @@ Player.prototype.draw = function(drawX, drawY){
 
   //Runnung Animation
   this.frames += 1;
-  if(this.frames > 7){ this.srcX += 24; this.frames = 0; }
+  if(this.frames > 4){ this.srcX += 24; this.frames = 0; }
   if(this.srcX >=  96) this.srcX = 0;
 
   ctxPlayer.drawImage(playerImg, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
