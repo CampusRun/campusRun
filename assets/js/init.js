@@ -19,7 +19,7 @@ menu.src = '';
 
 //set Player
 var playerImg = new Image();
-playerImg.src = 'assets/img/figur_test_02.png'
+playerImg.src = 'assets/img/player_right.png'
 
 //set object
 var block = new Image();
