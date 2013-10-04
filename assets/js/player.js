@@ -35,14 +35,14 @@ Player.prototype.draw = function(drawX, drawY){
   clearCtxPlayer();
 
   if(this.drawX <= 0){
-    if(this.lifes > 0){ 
-      this.lifes -= 1;
-      this.drawX = 80;
-    }
-    else {
+    if(this.lifes <= 1){ 
       gameLoopStop();
       alert("You Loose, you Suck! :D");
       location.reload();
+    }
+    else {
+      this.lifes -= 1;
+      this.drawX = 80;
     }
   }
 
