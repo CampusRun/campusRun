@@ -22,7 +22,9 @@ function Player(){
   this.falling = false;
   this.jumping = false;
   this.jumpSpeed = 2;
-  this.jumpHeight = 80;
+  this.jumpPower = 25;
+
+  this.jumpHeight = this.baseLineY - 80;
 
   this.frames = 0;
 }
@@ -30,7 +32,7 @@ function Player(){
 Player.prototype.draw = function(drawX, drawY){
   clearCtxPlayer();
 
-  if(this.drawX<=0){
+  if(this.drawX <= 0){
     gameLoopStop();
     alert("You Loose, you Suck! :D");
     location.reload();
@@ -39,10 +41,11 @@ Player.prototype.draw = function(drawX, drawY){
   //Jumping Animation
   if(this.jumping){
 
-    if( (this.falling && !playerCollisionY(this, object) ) || (this.drawY <= this.baseLineY - this.jumpHeight)){ //falling
+    if( (this.falling && !playerCollisionY(this) ) || (this.drawY <= this.jumpHeight)){ //falling
       if(this.drawY + this.height >= this.baseLineY){ //landed on the ground
         this.falling = false;
-        this.jumping = false; 
+        this.jumping = false;
+        this.jumpHeight = this.baseLineY - 80; 
       } else { //still falling
         this.falling = true;
         this.drawY += this.jumpSpeed;
@@ -52,16 +55,17 @@ Player.prototype.draw = function(drawX, drawY){
     } else { //Y Collision
       this.jumping = false;
       this.falling = false;
+      this.jumpHeight = this.drawY - this.jumpPower;
     }
-  }else if( !playerCollisionY(player, object) ) {
+  }else if( !playerCollisionY(player) ) {
     if(this.drawY+this.height < this.baseLineY){
       this.drawY += this.jumpSpeed;
-    }
+    } else if (this.drawY+this.height == this.baseLineY) this.jumpHeight = this.baseLineY - 80;
   } 
   
   //X Collision
-  if( playerCollisionX(player, object) ){
-    this.drawX = object.drawX - player.width; 
+  if( hittedObj = playerCollisionX(player) ){
+    this.drawX = hittedObj.drawX - player.width; 
   }
 
   //Runnung Animation
@@ -72,28 +76,34 @@ Player.prototype.draw = function(drawX, drawY){
   ctxPlayer.drawImage(playerImg, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
 };
 
-function playerCollisionX(playerObj, otherObj) {
-  if( player.drawY+player.height > otherObj.drawY ){
-    if( playerObj.drawX+playerObj.width >= otherObj.drawX){
-      if( !(playerObj.drawX >= otherObj.drawX+otherObj.drawWidth) ){    
-        return true
+function playerCollisionX(playerObj) {
+  for(i in objects){
+    otherObj = objects[i];
+    if( player.drawY+player.height > otherObj.drawY ){
+      if( playerObj.drawX+playerObj.width >= otherObj.drawX){
+        if( !(playerObj.drawX >= otherObj.drawX+otherObj.drawWidth) ){    
+          return otherObj;
+        }
       }
     }
   }
   return false
 }
 
-function playerCollisionY(playerObj, otherObj){
-  if( (playerObj.drawX >= otherObj.drawX &&
-        !(player.drawX >= otherObj.drawX+otherObj.drawWidth ) 
-      ) 
-    || (playerObj.drawX+playerObj.width >= otherObj.drawX &&
-        !(player.drawX >= otherObj.drawX+otherObj.drawWidth ) 
-      ) 
-    ){
-    
-    if( playerObj.drawY+playerObj.height >= otherObj.drawY ){
-      return true
+function playerCollisionY(playerObj){
+  for(i in objects){
+    otherObj = objects[i];
+    if( (playerObj.drawX >= otherObj.drawX &&
+          !(player.drawX >= otherObj.drawX+otherObj.drawWidth ) 
+        ) 
+      || (playerObj.drawX+playerObj.width >= otherObj.drawX &&
+          !(player.drawX >= otherObj.drawX+otherObj.drawWidth ) 
+        ) 
+      ){
+      
+      if( playerObj.drawY+playerObj.height >= otherObj.drawY ){
+        return otherObj;
+      }
     }
   }
   return false

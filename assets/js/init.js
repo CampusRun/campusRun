@@ -47,20 +47,26 @@ function init() {
   
   player = new Player();
   bgLayers = new BgLayers();
-
+  objects = initializeObjects();
+  
   gameOn = true;
-  playGame();
-  document.addEventListener('click', mouseClicked, false)
+  gameLoopStart();
+  //document.addEventListener('click', mouseClicked, false);
+}
+
+function initializeObjects(){
+  objects = [];
+  objects.push( new Object(180, 120) );
+  objects.push( new Object(200, 100) );
+  objects.push( new Object(200, 120) );
+  objects.push( new Object(220, 120) );
+
+  return objects;
 }
 
 
 function drawMenu() {
   ctxBg.drawImage(menu, 0, 0, 414+200, 252, 0, 0, gameWidth, gameHeight);
-}
-
-function playGame() {
-  object = new Object();
-  gameLoopStart();
 }
 
 function gameLoopStart(){
@@ -70,7 +76,10 @@ function gameLoopStart(){
     //draw player
     player.draw();
     //draw objects
-    object.draw();
+    clearCtxObject();
+    for(i in objects){
+      objects[i].draw();
+    }
 
     requestAnimFrame(gameLoopStart);
   }
@@ -112,6 +121,6 @@ window.onresize = function(event) {
 
 
 function mouseClicked(e) {
-  mouseX = e.pageX -canvasBg.offsetLeft;
+  mouseX = e.pageX - canvasBg.offsetLeft;
   mouseY = e.pageY - canvasBg.offsetTop;
 }
