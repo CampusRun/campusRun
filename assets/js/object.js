@@ -11,7 +11,7 @@ function Object(drawX, drawY){
   this.drawWidth = 20;
   this.drawHeight = 20;
   //settings
-  this.speed = 1.5;
+  this.speed = 2;
 }
 
 

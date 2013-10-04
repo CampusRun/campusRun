@@ -13,6 +13,9 @@ ctxObject = canvasObject.getContext('2d');
 var background = new Image();
 background.src = 'assets/img/background03.jpg';
 
+var lifeImg = new Image();
+lifeImg.src = 'assets/img/Bier.png';
+
 //set menu 1200*1200px
 var menu = new Image()
 menu.src = '';
@@ -54,7 +57,8 @@ function init() {
   //document.addEventListener('click', mouseClicked, false);
 }
 
-function initializeObjects(){
+function initializeObjects(){        
+
   objects = [];
   objects.push( new Object(180, 120) );
   objects.push( new Object(200, 100) );

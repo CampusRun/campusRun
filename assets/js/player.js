@@ -18,6 +18,8 @@ function Player(){
   this.drawY = 80;
 
   //settings
+  this.lifes = 3;
+
   this.baseLineY = 140;
   this.falling = false;
   this.jumping = false;
@@ -33,9 +35,15 @@ Player.prototype.draw = function(drawX, drawY){
   clearCtxPlayer();
 
   if(this.drawX <= 0){
-    gameLoopStop();
-    alert("You Loose, you Suck! :D");
-    location.reload();
+    if(this.lifes > 0){ 
+      this.lifes -= 1;
+      this.drawX = 80;
+    }
+    else {
+      gameLoopStop();
+      alert("You Loose, you Suck! :D");
+      location.reload();
+    }
   }
 
   //Jumping Animation
@@ -75,6 +83,10 @@ Player.prototype.draw = function(drawX, drawY){
 
   ctxPlayer.drawImage(playerImg, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
 };
+
+Player.prototype.currentLifes = function() {
+  return this.lifes;  
+}
 
 function playerCollisionX(playerObj) {
   for(i in objects){

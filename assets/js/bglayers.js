@@ -51,8 +51,17 @@ BgLayers.prototype.draw = function() {
   ctxBg.drawImage(background, this.commonSrcX, this.topSrcY, this.topSrcWidth, this.topSrcHeight, this.topDrawX, this.topDrawY, this.topDrawWidth, this.topDrawHeight);
   ctxBg.drawImage(background, this.commonSrcX, this.middleSrcY, this.middleSrcWidth, this.middleSrcHeight, this.middleDrawX, this.middleDrawY, this.middleDrawWidth, this.middleDrawHeight);
   ctxBg.drawImage(background, this.commonSrcX, this.bottomSrcY, this.bottomSrcWidth, this.bottomSrcHeight, this.bottomDrawX, this.bottomDrawY, this.bottomDrawWidth, this.bottomDrawHeight);
+
+  for(var i=1; i < currentLifes() + 1; i++){
+    ctxBg.drawImage(lifeImg, 0, 0, 600, 600, 10*i+i*5, 5, 30, 30);
+  }
 };
+
+function currentLifes() {
+  return player.currentLifes();
+}
 
 function clearCtxBgLayers() {
   ctxBg.clearRect(0,0,1000,500);
 }
+
