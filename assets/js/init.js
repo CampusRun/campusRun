@@ -53,6 +53,7 @@ function init() {
   objects = initializeObjects();
   
   gameOn = true;
+  startTime = new Date();
   gameLoopStart();
   //document.addEventListener('click', mouseClicked, false);
 }
@@ -75,6 +76,10 @@ function drawMenu() {
 
 function gameLoopStart(){
   if(gameOn){
+    var timeNow = new Date();
+    var totalSeconds = (timeNow - startTime) / 1000;
+    $("#clock").html(totalSeconds)
+
     //draw background
     bgLayers.draw();
     //draw player

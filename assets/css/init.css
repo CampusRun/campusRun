@@ -2,6 +2,12 @@ body{
   background: #303030;
 }
 
+#clock{
+  position: absolute;
+  margin-left: 650px;
+  font-size: 40px;
+}
+
 canvas {
   /**1024x576**/
   width: 1000px;
