@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ 
+<game>
+  <level id="1">
+    <background sprite="...">
+      <layer id="1" x=".." y=".." height="..." width="..."></layer>
+      <layer id="2" x=".." y=".." height="..." width="..."></layer>
+      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+    </background>
+
+    <description>Lorem Ipsum...</description>
+    
+    <enemylist sprite="...">
+      <enemy drawX="180" drawY="120" type="box"></enemy>
+      <enemy drawX="200" drawY="120" type="box"></enemy>
+      <enemy drawX="220" drawY="120" type="box"></enemy>
+      <enemy drawX="240" drawY="120" type="box"></enemy>
+
+    </enemylist>
+  </level>
+
+
+  <level id="2">
+    <background sprite="...">
+      <layer id="1" x=".." y=".." height="..." width="..."></layer>
+      <layer id="2" x=".." y=".." height="..." width="..."></layer>
+      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+    </background>
+
+    <description>Lorem Ipsum...</description>
+    
+    <enemylist sprite="...">
+    </enemylist>
+  </level>
+</game>

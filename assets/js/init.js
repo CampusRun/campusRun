@@ -25,8 +25,8 @@ var playerImg = new Image();
 playerImg.src = 'assets/img/player_right.png'
 
 //set object
-var block = new Image();
-block.src = 'assets/img/block.jpg';
+var objSprite = new Image();
+objSprite.src = 'assets/img/e_1.png';
 
 //GameSettings
 gameWidth = canvasBg.clientWidth;
@@ -61,10 +61,13 @@ function init() {
 function initializeObjects(){        
 
   objects = [];
-  objects.push( new Object(180, 120) );
-  objects.push( new Object(200, 100) );
-  objects.push( new Object(200, 120) );
-  objects.push( new Object(220, 120) );
+  objects.push( new Box(180, 120) );
+  objects.push( new Block1(200, 100) );
+  objects.push( new Block3(200, 120) );
+
+  objects.push( new Block2(250, 100) );
+
+  objects.push( new Fuenf0(300, 100) );  
 
   return objects;
 }

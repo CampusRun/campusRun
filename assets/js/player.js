@@ -1,13 +1,4 @@
 function Player(){
-  
-  //anfang bei x=´0 y=33
-  //19px breit
-  //32 px hoch
-
-  //2te 32px anfang
-
-  //3te 64px
-
   //src from
   this.srcX = 0;
   this.srcY = 0;
@@ -25,14 +16,22 @@ function Player(){
   this.jumping = false;
   this.jumpSpeed = 2;
   this.jumpPower = 25;
-
   this.jumpHeight = this.baseLineY - 80;
+  //Ghost
+  //this.ghost = true;
+  //this.ghostCountDown = 0;
+
 
   this.frames = 0;
 }
 
 Player.prototype.draw = function(drawX, drawY){
   clearCtxPlayer();
+
+  // Be invulnerable for a while if you lost a life --> Ghost: uncomment Ghost sections
+  // if(this.ghost && this.ghostCountDown>0 ){ this.ghostCountDown -=1 ; return 0; }
+  // else { this.ghostCountDown = 30; this.ghost = false; }
+
 
   if(this.drawX <= 0){
     if(this.lifes <= 1){ 
@@ -42,6 +41,8 @@ Player.prototype.draw = function(drawX, drawY){
     }
     else {
       this.lifes -= 1;
+      //Ghost
+      //this.ghost = true;
       this.drawX = 80;
     }
   }
