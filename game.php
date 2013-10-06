@@ -4,7 +4,15 @@
 <title>HTML5 Game Tryout</title>
 
 <link rel='stylesheet' href='assets/css/init.css'>
-<script type="text/javascript" src='assets/js/jquery-1.10.1.min.js'></script>
+
+<?php 
+//Laden aller .js
+	foreach(glob("assets/js/*.js") as $file)
+	{
+     echo '<script type="text/javascript" src="'.$file.'"></script>'."n"; 
+ 	}
+?>
+
 <script type="text/javascript" src='assets/js/button.js'></script>
 <script type="text/javascript" src='assets/js/object.js'></script>
 <script type="text/javascript" src='assets/js/player.js'></script>
