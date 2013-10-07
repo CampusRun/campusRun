@@ -50,12 +50,21 @@ function init() {
   
   player = new Player();
   bgLayers = new BgLayers();
-  level = window.location.hash.replace('#', '') || 1;
+  level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
   readXml(level);
-  
-  gameOn = true;
-  startTime = new Date();
-  gameLoopStart();
+
+  bgLayers.draw();  
+  $("#start_dialog").dialog({
+    title: "Wilkommen im "+level+" Level",
+    buttons: {
+      Skip: function () {
+          $(this).dialog("close");
+          startTime = new Date();
+          gameOn = true;
+          gameLoopStart();
+      } 
+    }
+  });
   //document.addEventListener('click', mouseClicked, false);
 }
 
@@ -63,7 +72,7 @@ function readXml(level){
   objects = [];
   if(typeof xmlDoc != 'undefined'){
     xmlLevel = $(xmlDoc).find("level#"+level)
-    lvlFinish = xmlLevel.attr("finish")
+    $("#start_dialog").html(xmlLevel.find("description").text())
     xmlLevel.find("enemylist").children().each(function(){
       var xCord = $(this).attr("drawX")
       var yCord = $(this).attr("drawY")
@@ -72,7 +81,7 @@ function readXml(level){
       objects.push( obj );
     });
   }else{ //Development mode
-    lvlFinish = 300;
+    $("#start_dialog").html("Lorem ipsum...!!")
     objects.push( new Box(180, 120) );
     objects.push( new Block1(200, 100) );
     objects.push( new Block3(200, 120) );
@@ -90,10 +99,10 @@ function afterVictory() {
   passedTime = $("#clock").html();
   remainingLifes = player.lifes;
   //prepare dialog
-  $("#dialog #yourTime").html(passedTime)
-  $("#dialog #yourLifes").html(remainingLifes)
+  $("#finish_dialog #yourTime").html(passedTime)
+  $("#finish_dialog #yourLifes").html(remainingLifes)
   //get player Data
-  $("#dialog").dialog({
+  $("#finish_dialog").dialog({
     title: "Du hast gewonnen!",
     buttons: { 
       Ok: function() {
@@ -101,13 +110,12 @@ function afterVictory() {
           $(this).dialog("close");
           // Send Data only if Ok is cklicked  
           //build Json Object
-          jsonData = {'playername': playername, 'time': passedTime, 'lifes': remainingLifes};
-          //console.log(jsonData);
+          jsonData = {'playername': playername, 'time': passedTime, 'lifes': remainingLifes, 'level':level};
           //request to Server
           var jqueryXHR = $.ajax({
             type: "GET",
             url: "http://campusrun.connectiv.info/statistics.php?statistics=sad",
-            data: jsonData,//optional
+            data: jsonData,
             dataType: "json",
             error: function(XHR, status, error){
               console.log("error")
@@ -117,6 +125,16 @@ function afterVictory() {
             },
             complete: function() {
               console.log("complete")
+              url = window.location.href
+              if(url.search("level=") >= 0){
+                //replace level parameter
+                appearance = url.search("level=")
+                url = url.replace(url.charAt(appearance+6), parseInt(level)+1)
+              }else {
+                //no level parameter given. Set one
+                url += "?level="+ (parseInt(level)+1)
+              }
+              window.location.href = url
             }
           });
       },

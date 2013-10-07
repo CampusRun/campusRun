@@ -7,29 +7,75 @@
       <layer id="2" x=".." y=".." height="..." width="..."></layer>
       <layer id="3" x=".." y=".." height="..." width="..."></layer>
     </background>
-
-    <description>Lorem Ipsum...</description>
-    
+    <description>Du bist neu am Campus Lingen. Im ersten Semester hast du vor allem Orientierungsprobleme und der eigene Wohnungsschlüssel ist auch nie zu finden.</description>
     <enemylist sprite="...">
-      <enemy drawX="180" drawY="120" type="box"></enemy>
-      <enemy drawX="200" drawY="120" type="box"></enemy>
-      <enemy drawX="220" drawY="120" type="box"></enemy>
-      <enemy drawX="240" drawY="120" type="box"></enemy>
+      <enemy drawX="280" drawY="120" type="Box"></enemy>
+      <enemy drawX="300" drawY="120" type="Box"></enemy>
+      <enemy drawX="320" drawY="120" type="Box"></enemy>
+      <enemy drawX="320" drawY="100" type="Box"></enemy>
+
+      <enemy drawX="340" drawY="100" type="Fuenf0"></enemy>
 
     </enemylist>
   </level>
-
-
   <level id="2">
     <background sprite="...">
       <layer id="1" x=".." y=".." height="..." width="..."></layer>
       <layer id="2" x=".." y=".." height="..." width="..."></layer>
       <layer id="3" x=".." y=".." height="..." width="..."></layer>
     </background>
-
-    <description>Lorem Ipsum...</description>
-    
+    <description>Nach den ersten Klausuren kommen auch gleich die ersten Abgabetermine für Hausarbeiten und alle Klausuren hast du auch nicht im ersten Versuch bestanden.</description>
     <enemylist sprite="...">
+      <enemy drawX="280" drawY="120" type="Box"></enemy>
+      <enemy drawX="340" drawY="100" type="Fuenf0"></enemy>
+    </enemylist>
+  </level>
+   <level id="3">
+    <background sprite="..."> 
+      <layer id="1" x=".." y=".." height="..." width="..."></layer>
+      <layer id="2" x=".." y=".." height="..." width="..."></layer>
+      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+    </background>
+    <description>Nach dem ersten überstandenen Jahr in Lingen geht es zusammen mit deinem Kommilitonen auf ein Bier in die Stadt. Tja und wie kann es anderes sein es eskaliert und du hast Probleme den Weg nachhause zu finden.</description>
+    <enemylist sprite="...">
+      <enemy drawX="280" drawY="120" type="Box"></enemy>
+      <enemy drawX="340" drawY="100" type="Fuenf0"></enemy>
+    </enemylist>
+  </level>
+  <level id="4">
+    <background sprite="..."> 
+      <layer id="1" x=".." y=".." height="..." width="..."></layer>
+      <layer id="2" x=".." y=".." height="..." width="..."></layer>
+      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+    </background>
+    <description>Durch dein Saufgelage im dritten Semester blieb das Lernen auf der Strecke und du hast einen riesen Haufen Nachreibeklausuren zu bewältigen. </description>
+    <enemylist sprite="...">
+      <enemy drawX="280" drawY="120" type="Box"></enemy>
+      <enemy drawX="340" drawY="100" type="Fuenf0"></enemy>
+    </enemylist>
+  </level>
+  <level id="5">
+    <background sprite="..."> 
+      <layer id="1" x=".." y=".." height="..." width="..."></layer>
+      <layer id="2" x=".." y=".." height="..." width="..."></layer>
+      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+    </background>
+    <description>Du hast natürlich nicht alle PTP´s auf grün und musst bis zum Stichtag noch nacharbeiten. In viele Modulen gibt es diesmal auch keine Klausur sondern einen Vortrag zu bearbeiten.</description>
+    <enemylist sprite="...">
+      <enemy drawX="280" drawY="120" type="Box"></enemy>
+      <enemy drawX="340" drawY="100" type="Fuenf0"></enemy>
+    </enemylist>
+  </level>
+  <level id="6">
+    <background sprite="..."> 
+      <layer id="1" x=".." y=".." height="..." width="..."></layer>
+      <layer id="2" x=".." y=".." height="..." width="..."></layer>
+      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+    </background>
+    <description>Endspurt am Campus. Der Bachelor ist in greifbarer Nähe wenn da nicht noch einmal alles aus den letzten 5 Semestern zusammen kommen würde und zusätzlich auch noch die Bachelorarbeit!</description>
+    <enemylist sprite="...">
+      <enemy drawX="280" drawY="120" type="Box"></enemy>
+      <enemy drawX="340" drawY="100" type="Fuenf0"></enemy>
     </enemylist>
   </level>
 </game>
