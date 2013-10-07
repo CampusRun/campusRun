@@ -27,17 +27,10 @@ function BgLayers(){
   this.bottomDrawX = 0;
   this.bottomDrawY = 135; 
   this.bottomSpeed = 1;
-
-  this.distance = 0;
 }
 
 BgLayers.prototype.draw = function() {
   clearCtxBgLayers();
-  
-  this.distance += 1;
-  if (this.distance >= lvlFinish){ //victory
-    afterVictory();
-  }
   
   this.topDrawX -= this.topSpeed;
   this.middleDrawX -= this.middleSpeed;

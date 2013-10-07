@@ -1,4 +1,4 @@
-function Object(srcX, srcY, width, height, drawX, drawY, drawWidth, drawHeight, speed, evil){
+function Object(srcX, srcY, width, height, drawX, drawY, drawWidth, drawHeight, speed){
   //src from
   this.srcX = srcX;
   this.srcY = srcY;
@@ -12,14 +12,31 @@ function Object(srcX, srcY, width, height, drawX, drawY, drawWidth, drawHeight, 
   this.drawHeight = drawHeight;
   //settings
   this.speed = speed;
-  this.evil = evil || false;
+  Object.remainObjects = [];
 }
 
 
 Object.prototype.draw = function(){
+  if(this.drawX+this.drawWidth > 0) this.addToRemainingObjects();
+  else this.removeFromRemainingObjects();
+
+  if(Object.remainObjects.length == 0) afterVictory();
+
   this.drawX -= this.speed;
   ctxObject.drawImage(objSprite, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.drawWidth, this.drawHeight); 
 };
+
+Object.prototype.addToRemainingObjects = function (){
+  if(this.indexInRemainObjects() == -1) Object.remainObjects.push(this);
+}
+
+Object.prototype.removeFromRemainingObjects = function() {
+  if(this.indexInRemainObjects() >= 0 ) Object.remainObjects.splice(this.indexInRemainObjects(), 1);
+}
+
+Object.prototype.indexInRemainObjects = function() {
+  return $.inArray(this, Object.remainObjects)
+}
 
 function clearCtxObject() {
   ctxObject.clearRect(0,0, 1000, 500);
@@ -112,7 +129,6 @@ function Fuenf0(drawX, drawY){
   this.drawHeight = 40;
   //settings
   this.speed = 2;
-  this.evil = true;
 
-  return new Object(this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.drawWidth, this.drawHeight, this.speed, this.evil)
+  return new Object(this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.drawWidth, this.drawHeight, this.speed)
 }
