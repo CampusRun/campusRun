@@ -51,12 +51,20 @@ function init() {
   player = new Player();
   bgLayers = new BgLayers();
   level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
-  console.log(level)
   readXml(level);
-  
-  gameOn = true;
-  startTime = new Date();
-  gameLoopStart();
+
+  bgLayers.draw();  
+  $("#start_dialog").dialog({
+    title: "Wilkommen im 1 Level",
+    buttons: {
+      Skip: function () {
+          $(this).dialog("close");
+          startTime = new Date();
+          gameOn = true;
+          gameLoopStart();
+      } 
+    }
+  });
   //document.addEventListener('click', mouseClicked, false);
 }
 
@@ -64,7 +72,7 @@ function readXml(level){
   objects = [];
   if(typeof xmlDoc != 'undefined'){
     xmlLevel = $(xmlDoc).find("level#"+level)
-    lvlFinish = xmlLevel.attr("finish")
+    $("#start_dialog").html(xmlLevel.find("description").text())
     xmlLevel.find("enemylist").children().each(function(){
       var xCord = $(this).attr("drawX")
       var yCord = $(this).attr("drawY")
@@ -73,7 +81,7 @@ function readXml(level){
       objects.push( obj );
     });
   }else{ //Development mode
-    lvlFinish = 300;
+    $("#start_dialog").html("Lorem ipsum...!!")
     objects.push( new Box(180, 120) );
     objects.push( new Block1(200, 100) );
     objects.push( new Block3(200, 120) );
@@ -91,10 +99,10 @@ function afterVictory() {
   passedTime = $("#clock").html();
   remainingLifes = player.lifes;
   //prepare dialog
-  $("#dialog #yourTime").html(passedTime)
-  $("#dialog #yourLifes").html(remainingLifes)
+  $("#finish_dialog #yourTime").html(passedTime)
+  $("#finish_dialog #yourLifes").html(remainingLifes)
   //get player Data
-  $("#dialog").dialog({
+  $("#finish_dialog").dialog({
     title: "Du hast gewonnen!",
     buttons: { 
       Ok: function() {
