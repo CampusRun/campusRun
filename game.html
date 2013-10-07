@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>HTML5 Game Tryout</title>
 
 <link rel='stylesheet' href='assets/css/init.css'>
@@ -14,6 +15,18 @@
 <body>
   <button onclick="gameOn=true; gameLoopStart()">Start</button>
   <button onclick="gameLoopStop()">Stop</button>
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+  <div id="dialog" style="display: none">
+    <p>Glückwunsch!</p>
+    <p>Deine Zeit: <span id="yourTime">0:00</span></p>
+    <p>verbleibende Leben in diesem Level: <span id="yourLifes">3</span></p>
+    <p>Gib deinen Namen an:</p>
+    <input id="name"></input>
+  </div>
+
 
   <div id='clock'>0:00</div>
   <canvas id='canvasBg'></canvas>

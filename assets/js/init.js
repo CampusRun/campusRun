@@ -50,7 +50,7 @@ function init() {
   
   player = new Player();
   bgLayers = new BgLayers();
-  level = 1;
+  level = window.location.hash.replace('#', '') || 1;
   readXml(level);
   
   gameOn = true;
@@ -89,21 +89,40 @@ function afterVictory() {
   //Statistics
   passedTime = $("#clock").html();
   remainingLifes = player.lifes;
-  //console.log("Congrats you won within "+passedTime+"seconds with "+remainingLifes+" Lifes left")
-  //build Json Object
-  jsonData = {'playername': 'Harald Kruel', 'time': passedTime, 'lifes': remainingLifes};
-  //console.log(jsonData);
-  //request to Server
-  var jqueryXHR = $.ajax({
-    type: "GET",
-    url: "http://campusrun.connectiv.info/statistics.php",
-    data: jsonData,//optional
-    dataType: "json",
-    error: function(XHR, status, error){
-      console.log("error")
-    },
-    success: function() {
-      console.log("success")
+  //prepare dialog
+  $("#dialog #yourTime").html(passedTime)
+  $("#dialog #yourLifes").html(remainingLifes)
+  //get player Data
+  $("#dialog").dialog({
+    title: "Du hast gewonnen!",
+    buttons: { 
+      Ok: function() {
+          playername = $("#name").val()
+          $(this).dialog("close");
+          // Send Data only if Ok is cklicked  
+          //build Json Object
+          jsonData = {'playername': playername, 'time': passedTime, 'lifes': remainingLifes};
+          //console.log(jsonData);
+          //request to Server
+          var jqueryXHR = $.ajax({
+            type: "GET",
+            url: "http://campusrun.connectiv.info/statistics.php?statistics=sad",
+            data: jsonData,//optional
+            dataType: "json",
+            error: function(XHR, status, error){
+              console.log("error")
+            },
+            success: function() {
+              console.log("success")
+            },
+            complete: function() {
+              console.log("complete")
+            }
+          });
+      },
+      Cancel: function () {
+          $(this).dialog("close");
+      }
     }
   });
 }
