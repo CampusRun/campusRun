@@ -55,7 +55,7 @@ function init() {
 
   bgLayers.draw();  
   $("#start_dialog").dialog({
-    title: "Wilkommen im 1 Level",
+    title: "Wilkommen im "+level+" Level",
     buttons: {
       Skip: function () {
           $(this).dialog("close");
