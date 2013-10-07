@@ -1,15 +1,4 @@
-//Layer of Sky Background
 function BgLayers(){
-  //boden
-  //100px höhe
-  //5000px breit
-
-  //berge 5000breit
-  //258 hoch
-
-  //himmel 5000breit
-  //217 hoch
-
   this.commonSrcX = 0;
 
   this.topSrcY = 0;
@@ -38,10 +27,17 @@ function BgLayers(){
   this.bottomDrawX = 0;
   this.bottomDrawY = 135; 
   this.bottomSpeed = 1;
+
+  this.distance = 0;
 }
 
 BgLayers.prototype.draw = function() {
   clearCtxBgLayers();
+  
+  this.distance += 1;
+  if (this.distance >= lvlFinish){ //victory
+    afterVictory();
+  }
   
   this.topDrawX -= this.topSpeed;
   this.middleDrawX -= this.middleSpeed;

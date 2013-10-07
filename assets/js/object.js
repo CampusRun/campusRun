@@ -18,12 +18,7 @@ function Object(srcX, srcY, width, height, drawX, drawY, drawWidth, drawHeight, 
 
 Object.prototype.draw = function(){
   this.drawX -= this.speed;
-  ctxObject.drawImage(objSprite, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.drawWidth, this.drawHeight);
-  this.recycle(); 
-};
-
-Object.prototype.recycle = function () {
-  if (this.drawX+this.drawWidth < 0)  this.drawX = 300;
+  ctxObject.drawImage(objSprite, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.drawWidth, this.drawHeight); 
 };
 
 function clearCtxObject() {
