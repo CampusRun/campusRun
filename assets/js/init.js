@@ -50,7 +50,8 @@ function init() {
   
   player = new Player();
   bgLayers = new BgLayers();
-  level = window.location.hash.replace('#', '') || 1;
+  level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
+  console.log(level)
   readXml(level);
   
   gameOn = true;
@@ -102,12 +103,11 @@ function afterVictory() {
           // Send Data only if Ok is cklicked  
           //build Json Object
           jsonData = {'playername': playername, 'time': passedTime, 'lifes': remainingLifes};
-          //console.log(jsonData);
           //request to Server
           var jqueryXHR = $.ajax({
             type: "GET",
             url: "http://campusrun.connectiv.info/statistics.php?statistics=sad",
-            data: jsonData,//optional
+            data: jsonData,
             dataType: "json",
             error: function(XHR, status, error){
               console.log("error")
@@ -117,6 +117,16 @@ function afterVictory() {
             },
             complete: function() {
               console.log("complete")
+              url = window.location.href
+              if(url.search("level=") >= 0){
+                //replace level parameter
+                appearance = url.search("level=")
+                url = url.replace(url.charAt(appearance+6), parseInt(level)+1)
+              }else {
+                //no level parameter given. Set one
+                url += "?level="+ (parseInt(level)+1)
+              }
+              window.location.href = url
             }
           });
       },
