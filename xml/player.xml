@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="playerlist.xsl"?>
+<Liste>
+    <Player>
+        <Playername>otten1</Playername>
+        <Time>5.994</Time>
+        <Lifes>3</Lifes>
+        <Level>1</Level>
+    </Player>
+    <Player>
+        <Playername>otten2</Playername>
+        <Time>5.994</Time>
+        <Lifes>3</Lifes>
+        <Level>2</Level>
+    </Player>
+    <Player>
+        <Playername>otten3</Playername>
+        <Time>6.023</Time>
+        <Lifes>3</Lifes>
+        <Level>3</Level>
+    </Player>
+    <Player>
+        <Playername>otten4</Playername>
+        <Time>5.991</Time>
+        <Lifes>3</Lifes>
+        <Level>4</Level>
+    </Player>
+    <Player>
+        <Playername>otten5</Playername>
+        <Time>5.981</Time>
+        <Lifes>3</Lifes>
+        <Level>5</Level>
+    </Player>
+    <Player>
+        <Playername>otten6</Playername>
+        <Time>5.981</Time>
+        <Lifes>3</Lifes>
+        <Level>6</Level>
+    </Player>
+</Liste>
