@@ -66,7 +66,7 @@ function readXml(level){
 	      objects.push( obj );
 	    });
 	  }else{ //Development mode
-		  console.log("xml konnte nicht gelesen werden")
+		console.log("xml konnte nicht gelesen werden")
 		  //$("#start_dialog").html("Lorem ipsum...!!")
 		objects.push( new Block2(0.1, 0.8, 0.6) );
 		objects.push( new Box(0.1, 0.5, 0.8) );
@@ -185,13 +185,13 @@ window.onresize = function()
 $(document).ready(function(){
 	console.log("xml wird versucht zu lesen:")
 	
-	xmlhttp = new XMLHttpRequest();
-    //xmlhttp.open("GET","../xml/game.xml",false);
-    //xmlhttp.send();
-    //xmlDoc = xmlhttp.responseXML;
+//	xmlhttp = new XMLHttpRequest();
+//  xmlhttp.open("GET","../xml/game.xml",false);
+//  xmlhttp.send();
+//  xmlDoc = xmlhttp.responseXML;
     //console.log(xmlDoc);
     preloadImages(preloadArray, init);
-    //init();
+//    init();
 }); 
 
 //RequestAnimationFrame
