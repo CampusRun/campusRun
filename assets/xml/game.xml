@@ -8,13 +8,13 @@
       <layer id="3" x=".." y=".." height="..." width="..."></layer>
     </background>
 
-    <description>Lorem Ipsum...</description>
+    <description>Otten hier Text...</description>
     
     <enemylist sprite="...">
-      <enemy drawX="180" drawY="120" type="box"></enemy>
-      <enemy drawX="200" drawY="120" type="box"></enemy>
-      <enemy drawX="220" drawY="120" type="box"></enemy>
-      <enemy drawX="240" drawY="120" type="box"></enemy>
+      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="0.8" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="0.9" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="1" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
 
     </enemylist>
   </level>
@@ -30,6 +30,11 @@
     <description>Lorem Ipsum...</description>
     
     <enemylist sprite="...">
+      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="0.8" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="0.9" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="1" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+
     </enemylist>
   </level>
 </game>

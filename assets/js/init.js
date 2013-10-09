@@ -1,124 +1,135 @@
-//Canvas Elements
-canvasBg = document.getElementById('canvasBg');
-canvasPlayer = document.getElementById('canvasPlayer');
-canvasObject = document.getElementById('canvasObject');
+//Canvas
+backgroundCnvs = document.getElementById('background');
+objectsCnvs = document.getElementById('objects');
+playerCnvs = document.getElementById('player');
 
-//Canvas Context
-ctxBg = canvasBg.getContext('2d');
-ctxPlayer = canvasPlayer.getContext('2d');
-ctxObject = canvasObject.getContext('2d');
+//Context
+backgroundCtx = backgroundCnvs.getContext('2d');
+objectsCtx = objectsCnvs.getContext('2d');
+playerCtx = playerCnvs.getContext('2d');
 
 //Images
-//set Background
-var background = new Image();
-background.src = 'assets/img/background03.jpg';
+preloadArray = new Array();
 
-var lifeImg = new Image();
-lifeImg.src = 'assets/img/Bier.png';
+backgroundImg = new Image();
+backgroundImg.src = '../img/background.png';
+playerImg = new Image();
+playerImg.src = '../img/player.png';
+objectsSprite = new Image();
+objectsSprite.src = '../img/objectsSprite.png'
+lifeImg = new Image();
+lifeImg.src = '../img/life.png'
 
-//set menu 1200*1200px
-var menu = new Image()
-menu.src = '';
+preloadArray.push(backgroundImg, playerImg, objectsSprite, lifeImg);
 
-//set Player
-var playerImg = new Image();
-playerImg.src = 'assets/img/player_right.png'
-
-//set object
-var objSprite = new Image();
-objSprite.src = 'assets/img/e_1.png';
-
-//GameSettings
-gameWidth = canvasBg.clientWidth;
-gameHeight = canvasBg.clientHeight;
-
-var gameOn;
-
-var requestAnimFrame =  window.requestAnimationFrame ||
-                          window.webkitRequestAnimationFrame ||
-                          window.mozRequestAnimationFrame ||
-                          window.msRequestAnimationFrame ||
-                          window.oRequestAnimationFrame ||
-                          function(callback){
-                            window.setTimeout(callback, 1000/60);
-                          };
-
-
-
-function init() {
-  drawMenu();
-  
-  player = new Player();
-  bgLayers = new BgLayers();
-  level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
-  readXml(level);
-
-  bgLayers.draw();  
-  $("#start_dialog").dialog({
-    title: "Wilkommen im "+level+" Level",
-    buttons: {
-      Skip: function () {
-          $(this).dialog("close");
-          startTime = new Date();
-          gameOn = true;
-          gameLoopStart();
-      } 
-    }
-  });
-  //document.addEventListener('click', mouseClicked, false);
+//Functions
+function init()
+{
+	resizeCanvases();
+	background = new Background(backgroundCtx, backgroundImg);
+	
+	level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
+	console.log(level);
+	
+	//level = 1;
+	readXml(level);
+	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 4);
+	
+	gameOn = false;
+	background.draw();
+	$("#start_dialog").dialog({
+	    title: "Wilkommen im "+level+" Level",
+	    buttons: {
+	      Skip: function () {
+	          $(this).dialog("close");
+	          //startTime = new Date();
+	          gameOn = true;
+	          onlyBgFlag = false;
+	          play();
+	      } 
+	    }
+	  });
 }
 
 function readXml(level){
-  objects = [];
-  if(typeof xmlDoc != 'undefined'){
-    xmlLevel = $(xmlDoc).find("level#"+level)
-    $("#start_dialog").html(xmlLevel.find("description").text())
-    xmlLevel.find("enemylist").children().each(function(){
-      var xCord = $(this).attr("drawX")
-      var yCord = $(this).attr("drawY")
-      var enemyType = $(this).attr("type")
-      eval("var obj = new "+enemyType+"("+xCord+","+yCord+")")
-      objects.push( obj );
-    });
-  }else{ //Development mode
-    $("#start_dialog").html("Lorem ipsum...!!")
-    objects.push( new Box(180, 120) );
-    objects.push( new Block1(200, 100) );
-    objects.push( new Block3(200, 120) );
-
-    objects.push( new Block2(250, 100) );
-
-    objects.push( new Fuenf0(300, 100) );  
-  }
-  
+	objects = [];
+	if(typeof xmlDoc != 'undefined'){
+	    console.log("xml kann gelesen werden!")
+		xmlLevel = $(xmlDoc).find("level#"+level)
+	    $("#start_dialog").html(xmlLevel.find("description").text())
+	    xmlLevel.find("enemylist").children().each(function(){
+	      var xCord = $(this).attr("drawX")
+	      var yCord = $(this).attr("drawY")
+	      var heightPerc = $(this).attr("heightPerc")
+	      var enemyType = $(this).attr("type")
+	      eval("var obj = new "+enemyType+"("+heightPerc+","+xCord+","+yCord+")")
+	      objects.push( obj );
+	    });
+	  }else{ //Development mode
+		  console.log("xml konnte nicht gelesen werden")
+		  //$("#start_dialog").html("Lorem ipsum...!!")
+		objects.push( new Block2(0.1, 0.8, 0.6) );
+		objects.push( new Box(0.1, 0.5, 0.8) );
+		objects.push( new Box(0.1, 0.53, 0.8) );
+	  }
+	
 }
 
-function afterVictory() {
-  gameLoopStop();
-  //Statistics
-  passedTime = $("#clock").html();
-  remainingLifes = player.lifes;
-  //prepare dialog
-  $("#finish_dialog #yourTime").html(passedTime)
-  $("#finish_dialog #yourLifes").html(remainingLifes)
-  //get player Data
-  $("#finish_dialog").dialog({
-    title: "Du hast gewonnen!",
-    buttons: { 
+function resizeCanvases()
+{
+	var canvasList = document.getElementsByTagName('canvas');
+	for (var i=0; i < canvasList.length; i++) 
+	{	
+		canvasList[i].width = canvasList[i].parentNode.clientWidth;
+		canvasList[i].height = canvasList[i].parentNode.clientHeight;
+	};
+}
+
+function play()
+{
+	if(gameOn){
+		background.draw();
+		player.draw();
+		clearCtxObject(objectsCtx);
+		for(i in objects){
+			objects[i].draw();
+		}
+		requestAnimationFrame(play);
+	}else if(onlyBgFlag){
+		background.draw();
+		requestAnimationFrame(play);
+	}
+}
+function stopPlay(){
+	gameOn = false;
+}
+function afterVictory(){
+	gameOn = false;
+	onlyBgFlag = true;
+	//statistics
+	remainingLifes = player.currentLifes();
+	$("#finish_dialog #yourLifes").html(remainingLifes	)
+	//get player Data
+	$("#finish_dialog").dialog({
+		title: "Du hast gewonnen!",
+		buttons: { 
       Ok: function() {
           playername = $("#name").val()
           $(this).dialog("close");
           // Send Data only if Ok is cklicked  
           //build Json Object
-          jsonData = {'playername': playername, 'time': passedTime, 'lifes': remainingLifes};
+          jsonData = {'playername': playername, 'lifes': remainingLifes, 'level': level};
           //request to Server
           var jqueryXHR = $.ajax({
-            type: "GET",
-            url: "http://campusrun.connectiv.info/statistics.php?statistics=sad",
+        	type: "GET",
+            url: "http://campusrun.connectiv.info/statistics.php",
             data: jsonData,
             dataType: "json",
             error: function(XHR, status, error){
               console.log("error")
+              console.log(XHR)
+              console.log(status)
+              console.log(error)
             },
             success: function() {
               console.log("success")
@@ -145,67 +156,64 @@ function afterVictory() {
   });
 }
 
-
-function drawMenu() {
-  ctxBg.drawImage(menu, 0, 0, 414+200, 252, 0, 0, gameWidth, gameHeight);
+function preloadImages(images, callback)
+{
+	remaining = images.length;
+	for (var i=0; i < remaining; i++) {
+		images[i].onload = function() 
+		{
+			--remaining;
+			if(remaining <= 0)
+			{
+				callback();
+			}
+		}
+	};
 }
 
-function gameLoopStart(){
-  if(gameOn){
-    var timeNow = new Date();
-    var totalSeconds = (timeNow - startTime) / 1000;
-    $("#clock").html(totalSeconds)
-
-    //draw background
-    bgLayers.draw();
-    //draw player
-    player.draw();
-    //draw objects
-    clearCtxObject();
-    for(i in objects){
-      objects[i].draw();
-    }
-
-    requestAnimFrame(gameLoopStart);
-  }
+//EventListener
+window.onresize = function() 
+{
+	resizeCanvases();
+	background.resize();
+	//player.resize();
+	for(i in objects){
+		objects[i].resize();
+	}
 }
 
-function gameLoopStop(){
-  gameOn = false
-}
+$(document).ready(function(){
+	console.log("xml wird versucht zu lesen:")
+	
+	xmlhttp = new XMLHttpRequest();
+    //xmlhttp.open("GET","../xml/game.xml",false);
+    //xmlhttp.send();
+    //xmlDoc = xmlhttp.responseXML;
+    //console.log(xmlDoc);
+    preloadImages(preloadArray, init);
+    //init();
+}); 
 
-//Helpers
-
-function checkKeyDown(e){
-  //check keyCode
-  if (e.keyCode == 32){ //spaceBar
-    player.jumping = true;
-    e.preventDefault();
-  }
-}
-
-
-function checkKeyUp(e){
-  //check keyCode
-}
-
-
-//eventListener
-window.onload = function() {
-  init();
-}
-
-document.addEventListener('keydown', checkKeyDown, false);
-document.addEventListener('keyup', checkKeyUp, false);
-
-
-window.onresize = function(event) {
-  gameWidth = canvasBg.clientWidth;
-  gameHeight = canvasBg.clientHeight; 
-}
-
-
-function mouseClicked(e) {
-  mouseX = e.pageX - canvasBg.offsetLeft;
-  mouseY = e.pageY - canvasBg.offsetTop;
-}
+//RequestAnimationFrame
+(function() {
+	var lastTime = 0;
+	var vendors = ['ms', 'moz', 'webkit', 'o'];
+	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+	window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+	window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+	|| window[vendors[x]+'CancelRequestAnimationFrame'];
+	}
+	if (!window.requestAnimationFrame)
+	window.requestAnimationFrame = function(callback, element) {
+	var currTime = new Date().getTime();
+	var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+	var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+	timeToCall);
+	lastTime = currTime + timeToCall;
+	return id;
+	};
+	if (!window.cancelAnimationFrame)
+	window.cancelAnimationFrame = function(id) {
+	clearTimeout(id);
+	};
+	}());

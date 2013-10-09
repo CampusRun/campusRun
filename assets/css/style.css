@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+
+body {
+	width: 800px;
+	height: 480px;
+	margin: auto;
+}
+
+#background, #objects, #player {
+	position: absolute;
+	display: block;
+}
