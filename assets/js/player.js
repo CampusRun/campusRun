@@ -27,13 +27,13 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	this.baseLine = this.posY;
 	
 	this.isJumping = false;
-	this.framesPerJump = 50;
+	this.framesPerJump = 40;
 	this.jmpFrame = 0;
-	this.maxJmpHeight = 150;
+	this.maxJmpHeight = this.cnvsHeight*0.3 ;
 	this.fallRef;
 	
 	this.isFalling = false;
-	this.framesPerFall = 50;
+	this.framesPerFall = 40;
 	this.fallFrame = 0;
 	this.maxFallHeight;
 	this.jmpRef;
