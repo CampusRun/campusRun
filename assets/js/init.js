@@ -197,7 +197,7 @@ window.onresize = function()
 	for(i in objects){
 		objects[i].resize();
 	}
-  if(!gameOn) background.draw();
+  if(!gameOn) drawAllBackground(backgrounds);
 }
 
 $(document).ready(function(){
