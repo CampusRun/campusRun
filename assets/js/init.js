@@ -62,8 +62,8 @@ function readXml(level){
     var spriteCnt = xmlLevel.find("background").attr("spriteCnt")
     xmlLevel.find("background").children().each(function(){
       var spriteY = $(this).attr("spriteY")
-      var speed = $(this).attr("speed")
-      eval("var bg = new Background (backgroundCtx, "+speed+","+spriteY+","+ spriteCnt +")")
+      var bgSpeed = $(this).attr("speed")
+      eval("var bg = new Background (backgroundCtx, "+bgSpeed+","+spriteY+","+ spriteCnt +")")
       backgrounds.push( bg );
     });
 
@@ -72,8 +72,9 @@ function readXml(level){
       var xCord = $(this).attr("drawX")
       var yCord = $(this).attr("drawY")
       var heightPerc = $(this).attr("heightPerc")
+      var enemySpeed = $(this).attr("heightPerc")
       var enemyType = $(this).attr("type")
-      eval("var obj = new "+enemyType+"("+heightPerc+","+xCord+","+yCord+")")
+      eval("var obj = new "+enemyType+"("+heightPerc+","+xCord+","+yCord+","+enemySpeed+")")
       objects.push( obj );
     });
   }else{ //Development mode
@@ -82,9 +83,9 @@ function readXml(level){
 		backgrounds.push( new Background(backgroundCtx, 0.3, 626, 2) );
     backgrounds.push( new Background(backgroundCtx, 0.5, 0, 2) );
 
-    objects.push( new Block2(0.1, 1.8, 0.6) );
-		objects.push( new Box(0.1, 1.5, 0.8) );
-		objects.push( new Box(0.1, 1, 0.8) );
+    objects.push( new Block2(0.1, 1.8, 0.6, 2) );
+		objects.push( new Box(0.1, 1.5, 0.8, 2) );
+		objects.push( new Box(0.1, 1, 0.8, 2) );
   }
 }
 

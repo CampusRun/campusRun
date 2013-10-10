@@ -1,9 +1,9 @@
 function Object(spriteX, spriteY, spriteWidth, spriteHeight, proportion,
-		heightPerc, offsetXPerc, offsetYPerc){
+		heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.ctx = objectsCtx;
 	this.img = objectsSprite;
-	this.speed = 2;
+	this.speed = speed;
 	
 	this.spriteX = spriteX;
 	this.spriteY = spriteY;
@@ -64,7 +64,7 @@ function clearCtxObject(ctx){
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
-function Box(heightPerc, offsetXPerc, offsetYPerc){
+function Box(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.spriteX = 0;
 	this.spriteY = 0;
@@ -75,26 +75,30 @@ function Box(heightPerc, offsetXPerc, offsetYPerc){
 	this.heightPerc = heightPerc;
 	this.offsetXPerc = offsetXPerc;
 	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
 	
 	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight, this.proportion,
-			this.heightPerc, this.offsetXPerc, this.offsetYPerc);
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };
 
-function Block1(heightPerc, offsetXPerc, offsetYPerc){
+function Block1(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.spriteX = 89;
 	this.spriteY = 0;
 	this.spriteWidth = 44;
 	this.spriteHeight = 36;
 	this.proportion = [1,1];
+
+	this.speed = speed;
 	
 	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,  this.proportion,
-			this.heightPerc, this.offsetXPerc, this.offsetYPerc);
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };
 
 
 
-function Block2(heightPerc, offsetXPerc, offsetYPerc){
+function Block2(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.spriteX = 134;
 	this.spriteY = 0;
@@ -105,7 +109,8 @@ function Block2(heightPerc, offsetXPerc, offsetYPerc){
 	this.heightPerc = heightPerc;
 	this.offsetXPerc = offsetXPerc;
 	this.offsetYPerc = offsetYPerc;
+	this.speed = speed;
 	
 	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight, this.proportion,
-			this.heightPerc, this.offsetXPerc, this.offsetYPerc);
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };

@@ -10,10 +10,10 @@
     <description>Otten hier Text...</description>
     
     <enemylist sprite="...">
-      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
-      <enemy drawX="0.8" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
-      <enemy drawX="0.9" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
-      <enemy drawX="1" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="0.8" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="0.9" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="1" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
 
     </enemylist>
   </level>
