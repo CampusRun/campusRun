@@ -72,7 +72,7 @@ function readXml(level){
       var xCord = $(this).attr("drawX")
       var yCord = $(this).attr("drawY")
       var heightPerc = $(this).attr("heightPerc")
-      var enemySpeed = $(this).attr("heightPerc")
+      var enemySpeed = $(this).attr("speed")
       var enemyType = $(this).attr("type")
       eval("var obj = new "+enemyType+"("+heightPerc+","+xCord+","+yCord+","+enemySpeed+")")
       objects.push( obj );
