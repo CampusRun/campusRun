@@ -1,43 +1,38 @@
 function Background(ctx, img)
 {
 	//Default settings
+	this.ctx = ctx;
+	this.img = img;
 	this.frames = 500; //number of frames for scrolling canvas-width
-	var limeImg = lifeImg;
+	this.lifeImg = lifeImg;
 	
-	var speed = ctx.canvas.width/this.frames;	
-	var offset = 0;
+	this.speed = this.ctx.canvas.width/this.frames;	
+	this.offset = 0;
 	
 	//OnCnvsProperties
-	var widthOnCnvs;
-	var heightOnCnvs;
-	var noImages;
-	setOnCnvsProperties();
+	this.widthOnCnvs;
+	this.heightOnCnvs;
+	this.noImages;
 	
 	Background.prototype.draw = function()
 	{
-		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-		for (var i=0; i <= noImages; i++) 
+		this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+		for (var i=0; i <= this.noImages; i++) 
 		{
-			ctx.drawImage(img, 0, 0, img.width, img.height,
-						 (i*widthOnCnvs)-offset, 0, widthOnCnvs, heightOnCnvs);			
+			this.ctx.drawImage(this.img, 0, 0, this.img.width, this.img.height,
+						 (i*this.widthOnCnvs)-this.offset, 0, this.widthOnCnvs, this.heightOnCnvs);			
 		};
-		offset = (offset > widthOnCnvs) ? 0 : offset+speed;
+		this.offset = (this.offset > this.widthOnCnvs) ? 0 : this.offset+this.speed;
 		
 		for(var i=1; i < player.currentLifes() + 1; i++){
-			ctx.drawImage(lifeImg, 0, 0, lifeImg.width, lifeImg.height, 10*i+i*40, 5,
-					0.05*widthOnCnvs, 0.25*heightOnCnvs);
+			this.ctx.drawImage(this.lifeImg, 0, 0, this.lifeImg.width, this.lifeImg.height, 10*i+i*40, 5,
+					0.05*this.widthOnCnvs, 0.25*this.heightOnCnvs);
 		}
 	}
-	
-	Background.prototype.resize = function()
-	{
-		setOnCnvsProperties();
-	}
-	
-	function setOnCnvsProperties()
-	{
-		widthOnCnvs = (ctx.canvas.height/img.height)*img.width;
-		heightOnCnvs = ctx.canvas.height;
-		noImages = Math.ceil(img.width/ctx.canvas.width);		
+
+	Background.prototype.resize = function (){
+		this.widthOnCnvs = (this.ctx.canvas.height/this.img.height)*this.img.width;
+		this.heightOnCnvs = this.ctx.canvas.height;
+		this.noImages = Math.ceil(this.img.width/this.ctx.canvas.width);	
 	}
 }

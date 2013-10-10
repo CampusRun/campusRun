@@ -4,6 +4,9 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	this.img = img;
 	this.objects = objects;
 	this.spriteNum = spriteNum;
+	this.posXPerc = posXPerc;
+	this.posYPerc = posYPerc;
+	this.heightPerc = heightPerc;
 	
 	//SpriteProperties
 	this.framesPerSprite = 8;
@@ -165,11 +168,29 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	Player.prototype.currentLifes = function() {
 		return this.lifes;
 	}
+
+	Player.prototype.resize = function()
+	{
+		var cnvsHeight = this.ctx.canvas.height;
+		var cnvsWidth = this.ctx.canvas.width;
+
+		//reposition Player
+		this.posX = this.ctx.canvas.width*this.posXPerc;
+		this.posY = cnvsHeight-(cnvsHeight*(this.heightPerc+this.posYPerc));
+		this.height = cnvsHeight*this.heightPerc;
+		this.width = ((this.height/this.imgHeight)*this.imgWidth)/this.spriteNum;
+
+		//Reinitialize Settings
+		this.baseLine = this.posY;
+		this.cnvsWidth = this.ctx.canvas.width;
+		this.cnvsHeight = this.ctx.canvas.height;
+		this.maxJmpHeight = cnvsHeight*0.3;
+	};		
+	
 	
 	//EventListener
 	window.onclick = function()
 	{
-		//console.log('click');
 		if(!player.isFalling) player.isJumping = true;
 	}
 

@@ -26,12 +26,9 @@ preloadArray.push(backgroundImg, playerImg, objectsSprite, lifeImg);
 function init()
 {
 	resizeCanvases();
-	background = new Background(backgroundCtx, backgroundImg);
-	
+	background = new Background(backgroundCtx, backgroundImg)
+  background.resize();
 	level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
-	console.log(level);
-	
-	//level = 1;
 	readXml(level);
 	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 4);
 	
@@ -68,9 +65,9 @@ function readXml(level){
 	  }else{ //Development mode
 		console.log("xml konnte nicht gelesen werden")
 		  //$("#start_dialog").html("Lorem ipsum...!!")
-		objects.push( new Block2(0.1, 0.8, 0.6) );
-		objects.push( new Box(0.1, 0.5, 0.8) );
-		objects.push( new Box(0.1, 0.53, 0.8) );
+  		objects.push( new Block2(0.1, 1.8, 0.6) );
+  		objects.push( new Box(0.1, 1.5, 0.8) );
+  		objects.push( new Box(0.1, 1, 0.8) );
 	  }
 	
 }
@@ -176,22 +173,23 @@ window.onresize = function()
 {
 	resizeCanvases();
 	background.resize();
-	//player.resize();
+	player.resize();
 	for(i in objects){
 		objects[i].resize();
 	}
+  if(!gameOn) background.draw();
 }
 
 $(document).ready(function(){
 	console.log("xml wird versucht zu lesen:")
 	
-	xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET","../xml/game.xml",false);
-	xmlhttp.send();
-	xmlDoc = xmlhttp.responseXML;
-    //console.log(xmlDoc);
-    preloadImages(preloadArray, init);
-	init();
+	//xmlhttp = new XMLHttpRequest();
+	//xmlhttp.open("GET","../xml/game.xml",false);
+	//xmlhttp.send();
+	//xmlDoc = xmlhttp.responseXML;
+
+  preloadImages(preloadArray, init);
+	//init();
 }); 
 
 //RequestAnimationFrame
