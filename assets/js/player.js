@@ -147,7 +147,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 		{
 			if((this.posX >= this.objects[i].posX) && (!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))
 				||
-			  ((this.posX+this.width >= this.objects[i].posX) && (!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))))
+			  (( this.posX+this.width-5 >= this.objects[i].posX) && (!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))))
 			{
 				if(this.posY+this.height > this.objects[i].posY)
 				{

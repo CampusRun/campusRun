@@ -11,8 +11,9 @@ playerCtx = playerCnvs.getContext('2d');
 //Images
 preloadArray = new Array();
 
-backgroundImg = new Image();
-backgroundImg.src = '../img/background.png';
+backgroundSprite = new Image();
+backgroundSprite.src = '../img/bg_sprite.png';
+
 playerImg = new Image();
 playerImg.src = '../img/player.png';
 objectsSprite = new Image();
@@ -20,20 +21,21 @@ objectsSprite.src = '../img/objectsSprite.png'
 lifeImg = new Image();
 lifeImg.src = '../img/life.png'
 
-preloadArray.push(backgroundImg, playerImg, objectsSprite, lifeImg);
+preloadArray.push(backgroundSprite, playerImg, objectsSprite, lifeImg);
 
 //Functions
 function init()
 {
 	resizeCanvases();
-	background = new Background(backgroundCtx, backgroundImg)
-  background.resize();
+ 
 	level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
 	readXml(level);
 	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 4);
+  resizeAllBackgrounds(backgrounds);
 	
 	gameOn = false;
-	background.draw();
+	drawAllBackground(backgrounds);
+
 	$("#start_dialog").dialog({
 	    title: "Wilkommen im "+level+" Level",
 	    buttons: {
@@ -50,26 +52,40 @@ function init()
 
 function readXml(level){
 	objects = [];
+  backgrounds = [];
 	if(typeof xmlDoc != 'undefined'){
-	    console.log("xml kann gelesen werden!")
-		xmlLevel = $(xmlDoc).find("level#"+level)
-	    $("#start_dialog").html(xmlLevel.find("description").text())
-	    xmlLevel.find("enemylist").children().each(function(){
-	      var xCord = $(this).attr("drawX")
-	      var yCord = $(this).attr("drawY")
-	      var heightPerc = $(this).attr("heightPerc")
-	      var enemyType = $(this).attr("type")
-	      eval("var obj = new "+enemyType+"("+heightPerc+","+xCord+","+yCord+")")
-	      objects.push( obj );
-	    });
-	  }else{ //Development mode
-		console.log("xml konnte nicht gelesen werden")
-		  //$("#start_dialog").html("Lorem ipsum...!!")
-  		objects.push( new Block2(0.1, 1.8, 0.6) );
-  		objects.push( new Box(0.1, 1.5, 0.8) );
-  		objects.push( new Box(0.1, 1, 0.8) );
-	  }
-	
+    console.log("xml kann gelesen werden!")
+    xmlLevel = $(xmlDoc).find("level#"+level)
+    $("#start_dialog").html(xmlLevel.find("description").text())
+    
+    //backgrounds
+    var spriteCnt = xmlLevel.find("background").attr("spriteCnt")
+    xmlLevel.find("background").children().each(function(){
+      var spriteY = $(this).attr("spriteY")
+      var speed = $(this).attr("speed")
+      eval("var bg = new Background (backgroundCtx, "+speed+","+spriteY+","+ spriteCnt +")")
+      backgrounds.push( bg );
+    });
+
+    //enemeys
+    xmlLevel.find("enemylist").children().each(function(){
+      var xCord = $(this).attr("drawX")
+      var yCord = $(this).attr("drawY")
+      var heightPerc = $(this).attr("heightPerc")
+      var enemyType = $(this).attr("type")
+      eval("var obj = new "+enemyType+"("+heightPerc+","+xCord+","+yCord+")")
+      objects.push( obj );
+    });
+  }else{ //Development mode
+	console.log("xml konnte nicht gelesen werden")
+	  //$("#start_dialog").html("Lorem ipsum...!!")
+		backgrounds.push( new Background(backgroundCtx, 0.3, 626, 2) );
+    backgrounds.push( new Background(backgroundCtx, 0.5, 0, 2) );
+
+    objects.push( new Block2(0.1, 1.8, 0.6) );
+		objects.push( new Box(0.1, 1.5, 0.8) );
+		objects.push( new Box(0.1, 1, 0.8) );
+  }
 }
 
 function resizeCanvases()
@@ -85,15 +101,19 @@ function resizeCanvases()
 function play()
 {
 	if(gameOn){
-		background.draw();
-		player.draw();
-		clearCtxObject(objectsCtx);
+    drawAllBackground(backgrounds)
+
+    player.draw();
+		//clear all objects
+    clearCtxObject(objectsCtx);
 		for(i in objects){
 			objects[i].draw();
 		}
+
 		requestAnimationFrame(play);
 	}else if(onlyBgFlag){
-		background.draw();
+		drawAllBackground(backgrounds);
+
 		requestAnimationFrame(play);
 	}
 }
@@ -172,7 +192,7 @@ function preloadImages(images, callback)
 window.onresize = function() 
 {
 	resizeCanvases();
-	background.resize();
+	resizeAllBackgrounds(backgrounds);
 	player.resize();
 	for(i in objects){
 		objects[i].resize();

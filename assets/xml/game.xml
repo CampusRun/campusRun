@@ -2,10 +2,9 @@
  
 <game>
   <level id="1">
-    <background sprite="...">
-      <layer id="1" x=".." y=".." height="..." width="..."></layer>
-      <layer id="2" x=".." y=".." height="..." width="..."></layer>
-      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+    <background spriteCnt="2">
+      <layer spriteY="625" speed="0.3"></layer>
+      <layer spriteY="0" speed="0.5"></layer>
     </background>
 
     <description>Otten hier Text...</description>
