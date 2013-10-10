@@ -13,3 +13,7 @@ html, body {
 	position: absolute;
 	display: block;
 }
+
+.preLoadImgs {
+  display: none;
+}

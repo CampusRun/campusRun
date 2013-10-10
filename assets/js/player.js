@@ -188,7 +188,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	};		
 	
 	
-	//EventListener
+	EventListener
 	window.onclick = function()
 	{
 		if(!player.isFalling) player.isJumping = true;

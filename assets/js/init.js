@@ -203,13 +203,13 @@ window.onresize = function()
 
 $(document).ready(function(){
 	console.log("xml wird versucht zu lesen:")
-	
-	//xmlhttp = new XMLHttpRequest();
-	//xmlhttp.open("GET","../xml/game.xml",false);
-	//xmlhttp.send();
-	//xmlDoc = xmlhttp.responseXML;
 
-  preloadImages(preloadArray, init);
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET","../xml/game.xml",false);
+	xmlhttp.send();
+	xmlDoc = xmlhttp.responseXML;
+
+	preloadImages(preloadArray, init);
 	//init();
 }); 
 
