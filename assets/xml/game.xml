@@ -2,38 +2,171 @@
  
 <game>
   <level id="1">
-    <background spriteCnt="2">
-      <layer spriteY="625" speed="0.3"></layer>
-      <layer spriteY="0" speed="0.5"></layer>
+    <background spriteCnt="3" sprite="bg_sprite_1.png">
+      <layer spriteY="1152" speed="0.6"></layer>
+      <layer spriteY="0" speed="1.0"></layer>
     </background>
 
-    <description>Otten hier Text...</description>
+    <description>Du bist neu am Campus Lingen. Im ersten Semester hast du vor allem Orientierungsprobleme und der eigene Wohnungsschlüssel ist auch nie zu finden.</description>
     
-    <enemylist sprite="...">
-      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="0.8" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="0.9" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="1" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
+    <enemylist>
+
+      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+
+      <enemy drawX="1.3" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+    
+
+      <enemy drawX="1.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+ 
+
+      <enemy drawX="1.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="2.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="2.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="2.2" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
+
+      <enemy drawX="2.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="2.7" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="2.7" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+
+      <enemy drawX="2.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+
+      <enemy drawX="3.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="3.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="3.2" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
+
+      <enemy drawX="3.4" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="3.7" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
 
     </enemylist>
   </level>
 
-
-  <level id="2">
-    <background sprite="...">
-      <layer id="1" x=".." y=".." height="..." width="..."></layer>
-      <layer id="2" x=".." y=".." height="..." width="..."></layer>
-      <layer id="3" x=".." y=".." height="..." width="..."></layer>
+  <level id="2" sprite="bg_sprite_1.png">
+    <background spriteCnt="5">
+      <layer spriteY="625" speed="0.5"></layer>
+      <layer spriteY="0" speed="0.8"></layer>
     </background>
 
-    <description>Lorem Ipsum...</description>
+    <description>Nach den ersten Klausuren kommen auch gleich die ersten Abgabetermine für Hausarbeiten und alle Klausuren hast du auch nicht im ersten Versuch bestanden.</description>
+    
+    <enemylist>
+      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.5" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.7" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.7" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+
+      <enemy drawX="1.4" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.4" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+
+      <enemy drawX="1.9" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.9" drawY="0.6" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+
+      <enemy drawX="2.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="2.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="2.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+    </enemylist>
+  </level>
+
+    <level id="3" sprite="bg_sprite_1.png">
+    <background spriteCnt="5">
+      <layer spriteY="1875" speed="0.5"></layer>
+      <layer spriteY="2500" speed="1.0"></layer>
+      <layer spriteY="1250" speed="0.8"></layer>
+    </background>
+
+    <description>Nach dem ersten überstandenen Jahr in Lingen geht es zusammen mit deinem Kommilitonen auf ein Bier in die Stadt. Tja und wie kann es anderes sein es eskaliert und du hast Probleme den Weg nachhause zu finden.   </description>
     
     <enemylist sprite="...">
-      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
-      <enemy drawX="0.8" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
-      <enemy drawX="0.9" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
-      <enemy drawX="1" drawY="0.6" heightPerc="0.1" type="Box"></enemy>
+      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
 
+      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      
+      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+    </enemylist>
+  </level>
+
+    <level id="4" sprite="bg_sprite_1.png">
+    <background spriteCnt="5">
+      <layer spriteY="625" speed="0.5"></layer>
+      <layer spriteY="0" speed="0.8"></layer>
+    </background>
+
+    <description>Durch dein Saufgelage im dritten Semester blieb das Lernen auf der Strecke und du hast einen riesen Haufen Nachreibeklausuren zu bewältigen. </description>
+    
+    <enemylist>
+      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      
+      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+    </enemylist>
+  </level>
+
+      <level id="5" sprite="bg_sprite_1.png">
+    <background spriteCnt="5">
+      <layer spriteY="625" speed="0.5"></layer>
+      <layer spriteY="0" speed="0.8"></layer>
+    </background>
+
+    <description>Du hast natürlich nicht alle PTP´s auf grün und musst bis zum Stichtag noch nacharbeiten. In viele Modulen gibt es diesmal auch keine Klausur sondern einen Vortrag zu bearbeiten.</description>
+    
+    <enemylist>
+      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      
+      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+    </enemylist>
+  </level>
+
+      <level id="6" sprite="bg_sprite_1.png">
+    <background spriteCnt="5">
+      <layer spriteY="625" speed="0.5"></layer>
+      <layer spriteY="0" speed="0.8"></layer>
+    </background>
+
+    <description>Endspurt am Campus. Der Bachelor ist in greifbarer Nähe wenn da nicht noch einmal alles aus den letzten 5 Semestern zusammen kommen würde und zusätzlich auch noch die Bachelorarbeit!</description>
+    
+    <enemylist>
+      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+
+      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      
+      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
     </enemylist>
   </level>
 </game>

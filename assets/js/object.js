@@ -82,6 +82,24 @@ function Box(heightPerc, offsetXPerc, offsetYPerc, speed){
 			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };
 
+function Box2(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 0;
+	this.spriteY = 89;
+	this.spriteWidth = 172;
+	this.spriteHeight = 88;
+	this.proportion = [1,2];
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight, this.proportion,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
 function Block1(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.spriteX = 89;

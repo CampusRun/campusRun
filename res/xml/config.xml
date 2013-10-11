@@ -31,7 +31,7 @@
     </author>
 
     <access origin="*"/>
-
+    
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />
 	<preference name="fullscreen" value="true" />

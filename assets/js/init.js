@@ -11,9 +11,6 @@ playerCtx = playerCnvs.getContext('2d');
 //Images
 preloadArray = new Array();
 
-backgroundSprite = new Image();
-backgroundSprite.src = '../img/bg_sprite.png';
-
 playerImg = new Image();
 playerImg.src = '../img/player.png';
 objectsSprite = new Image();
@@ -21,44 +18,55 @@ objectsSprite.src = '../img/objectsSprite.png'
 lifeImg = new Image();
 lifeImg.src = '../img/life.png'
 
-preloadArray.push(backgroundSprite, playerImg, objectsSprite, lifeImg);
+preloadArray.push(playerImg, objectsSprite, lifeImg);
 
+frameTicker = 0;
 //Functions
 function init()
 {
+	initalWidth = $(window).width(); 
 	resizeCanvases();
  
 	level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
 	readXml(level);
 	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 4);
-  resizeAllBackgrounds(backgrounds);
-	
-	gameOn = false;
-	drawAllBackground(backgrounds);
+  $(window).load(function(){
+    resizeAllBackgrounds(backgrounds);
+    drawAllBackground(backgrounds);
+    
+  	
+  	gameOn = false;
+  	
+    resize();
 
-	$("#start_dialog").dialog({
-	    title: "Wilkommen im "+level+" Level",
-	    buttons: {
-	      Skip: function () {
-	          $(this).dialog("close");
-	          //startTime = new Date();
-	          gameOn = true;
-	          onlyBgFlag = false;
-	          play();
-	      } 
-	    }
-	  });
+  	$("#start_dialog").dialog({
+  	    title: "Wilkommen im "+level+" Level",
+  	    buttons: {
+  	      Skip: function () {
+  	          $(this).dialog("close");
+  	          //startTime = new Date();
+  	          gameOn = true;
+  	          onlyBgFlag = false;
+  	          play();
+  	      } 
+  	    }
+  	  });
+  });
 }
 
 function readXml(level){
+	console.log("in readXml")
 	objects = [];
-  backgrounds = [];
+	backgrounds = [];
 	if(typeof xmlDoc != 'undefined'){
     console.log("xml kann gelesen werden!")
     xmlLevel = $(xmlDoc).find("level#"+level)
     $("#start_dialog").html(xmlLevel.find("description").text())
     
     //backgrounds
+    var sprite = xmlLevel.find("background").attr("sprite");
+    backgroundSprite = new Image();
+    backgroundSprite.src = "../img/"+sprite;
     var spriteCnt = xmlLevel.find("background").attr("spriteCnt")
     xmlLevel.find("background").children().each(function(){
       var spriteY = $(this).attr("spriteY")
@@ -78,22 +86,29 @@ function readXml(level){
       objects.push( obj );
     });
   }else{ //Development mode
-	console.log("xml konnte nicht gelesen werden")
-	  //$("#start_dialog").html("Lorem ipsum...!!")
-		backgrounds.push( new Background(backgroundCtx, 0.3, 626, 2) );
-    backgrounds.push( new Background(backgroundCtx, 0.5, 0, 2) );
+    backgroundSprite = new Image();
+    backgroundSprite.src = '../img/bg_sprite_1.png';
 
-    objects.push( new Block2(0.1, 1.8, 0.6, 2) );
-		objects.push( new Box(0.1, 1.5, 0.8, 2) );
-		objects.push( new Box(0.1, 1, 0.8, 2) );
+    console.log("xml konnte nicht gelesen werden")
+    backgrounds.push( new Background(backgroundCtx, 0.3, 1152, 3) );
+    backgrounds.push( new Background(backgroundCtx, 0.8, 576, 3) );
+    backgrounds.push( new Background(backgroundCtx, 0.5, 0, 3) );
+
+    objects.push( new Box2(0.1, 0.5, 0.8, 2) );
+    objects.push( new Box2(0.1, 0.5, 0.7, 2) );
+    objects.push( new Box2(0.1, 0.56, 0.8, 2) );
+    objects.push( new Box2(0.1, 0.61, 0.6, 2) );
+    objects.push( new Box2(0.1, 0.61, 0.7, 2) );
+    objects.push( new Box2(0.1, 0.61, 0.8, 2) );
   }
 }
 
 function resizeCanvases()
 {
-	var canvasList = document.getElementsByTagName('canvas');
+  var canvasList = document.getElementsByTagName('canvas');
 	for (var i=0; i < canvasList.length; i++) 
 	{	
+
 		canvasList[i].width = canvasList[i].parentNode.clientWidth;
 		canvasList[i].height = canvasList[i].parentNode.clientHeight;
 	};
@@ -102,7 +117,8 @@ function resizeCanvases()
 function play()
 {
 	if(gameOn){
-    drawAllBackground(backgrounds)
+	frameTicker += 1;
+	if(frameTicker % 2 == 0) drawAllBackground(backgrounds);
 
     player.draw();
 		//clear all objects
@@ -178,11 +194,14 @@ function preloadImages(images, callback)
 {
 	remaining = images.length;
 	for (var i=0; i < remaining; i++) {
+		console.log("vor image onload")
 		images[i].onload = function() 
 		{
+			console.log("in image onload")
 			--remaining;
 			if(remaining <= 0)
 			{
+				console.log("callback....")
 				callback();
 			}
 		}
@@ -192,12 +211,16 @@ function preloadImages(images, callback)
 //EventListener
 window.onresize = function() 
 {
-	resizeCanvases();
-	resizeAllBackgrounds(backgrounds);
-	player.resize();
-	for(i in objects){
-		objects[i].resize();
-	}
+	resize();
+}
+
+function resize(){
+  resizeCanvases();
+  resizeAllBackgrounds(backgrounds);
+  player.resize();
+  for(i in objects){
+    objects[i].resize();
+  }
   if(!gameOn) drawAllBackground(backgrounds);
 }
 
@@ -208,9 +231,10 @@ $(document).ready(function(){
 	xmlhttp.open("GET","../xml/game.xml",false);
 	xmlhttp.send();
 	xmlDoc = xmlhttp.responseXML;
+	console.log("nach xml gelesen");
 
 	preloadImages(preloadArray, init);
-	//init();
+	init();
 }); 
 
 //RequestAnimationFrame

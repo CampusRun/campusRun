@@ -30,13 +30,13 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	this.baseLine = this.posY;
 	
 	this.isJumping = false;
-	this.framesPerJump = 40;
+	this.framesPerJump = 20;
 	this.jmpFrame = 0;
 	this.maxJmpHeight = this.cnvsHeight*0.3 ;
 	this.fallRef;
 	
 	this.isFalling = false;
-	this.framesPerFall = 40;
+	this.framesPerFall = 20;
 	this.fallFrame = 0;
 	this.maxFallHeight;
 	this.jmpRef;
@@ -46,7 +46,6 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	
 	this.afterYCollision = false;
 	this.yCollisionStarted = false;
-
 	
 	Player.prototype.draw = function()
 	{
@@ -61,6 +60,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 		    }
 		    else {
 		      this.lifes -= 1;
+		      
 		      this.posX = this.initialStartX;
 		      this.posY = this.rebornStartY;
 		      this.isFalling = true;
@@ -149,7 +149,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 				||
 			  (( this.posX+this.width-5 >= this.objects[i].posX) && (!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))))
 			{
-				if(this.posY+this.height > this.objects[i].posY)
+				if(this.posY+this.height+3 > this.objects[i].posY)
 				{
 					this.yCollisionStarted = true;
 					return this.objects[i];
@@ -188,16 +188,16 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	};		
 	
 	
-	EventListener
-	window.onclick = function()
-	{
-		if(!player.isFalling) player.isJumping = true;
-	}
-
-	
-//	document.addEventListener('touchstart',function() 
+	//EventListener
+//	window.onclick = function()
 //	{
 //		if(!player.isFalling) player.isJumping = true;
-//	}, false);
+//	}
+
+	
+	document.addEventListener('touchstart',function() 
+	{
+		if(!player.isFalling) player.isJumping = true;
+	}, false);
 
 }

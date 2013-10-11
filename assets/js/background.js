@@ -27,6 +27,7 @@ function Background(ctx, imgSpeed, spriteY, spriteCnt)
 		};
 		this.offset = (this.offset > this.widthOnCnvs) ? 0 : this.offset + this.imgSpeed;
 
+		//refactoren
 		for(var i=1; i < player.currentLifes() + 1; i++){
 			this.ctx.drawImage(this.lifeImg, 0, 0, this.lifeImg.width, this.lifeImg.height, 10*i+i*40, 5,
 					0.05*this.widthOnCnvs, 0.25*this.heightOnCnvs);
