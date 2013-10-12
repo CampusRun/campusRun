@@ -87,7 +87,6 @@ function readXml(level){
 
     console.log("xml konnte nicht gelesen werden")
     backgrounds.push( new Background(backgroundCtx, 0.3, 1152, 3) );
-    backgrounds.push( new Background(backgroundCtx, 0.8, 576, 3) );
     backgrounds.push( new Background(backgroundCtx, 0.5, 0, 3) );
 
     objects.push( new Box2(0.1, 0.5, 0.8, 2) );
@@ -220,10 +219,10 @@ window.onresize = function()
 $(document).ready(function(){
 	console.log("xml wird versucht zu lesen:")
 
-	xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET","../xml/game.xml",false);
-	xmlhttp.send();
-	xmlDoc = xmlhttp.responseXML;
+	//xmlhttp = new XMLHttpRequest();
+	//xmlhttp.open("GET","../xml/game.xml",false);
+	//xmlhttp.send();
+	//xmlDoc = xmlhttp.responseXML;
 	console.log("nach xml gelesen");
 
 	preloadImages(preloadArray, init);

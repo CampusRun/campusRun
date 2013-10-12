@@ -1,4 +1,4 @@
-function Object(spriteX, spriteY, spriteWidth, spriteHeight, proportion,
+function Object(spriteX, spriteY, spriteWidth, spriteHeight,
 		heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.ctx = objectsCtx;
@@ -9,7 +9,6 @@ function Object(spriteX, spriteY, spriteWidth, spriteHeight, proportion,
 	this.spriteY = spriteY;
 	this.spriteWidth = spriteWidth;
 	this.spriteHeight = spriteHeight;
-	this.proportion = proportion;
 	this.heightPerc = heightPerc;
 	this.offsetXPerc = offsetXPerc;
 	this.offsetYPerc = offsetYPerc;
@@ -28,8 +27,8 @@ function Object(spriteX, spriteY, spriteWidth, spriteHeight, proportion,
 Object.prototype.setOnCnvsProperties = function(){
 	this.posX = this.ctx.canvas.width*this.offsetXPerc;
 	this.posY = this.ctx.canvas.height*this.offsetYPerc;
-	this.heightOnCnvs = this.ctx.canvas.height*this.heightPerc*this.proportion[0];
-	this.widthOnCnvs = this.ctx.canvas.height*this.heightPerc*this.proportion[1];		
+	this.heightOnCnvs = this.ctx.canvas.height*this.heightPerc;
+	this.widthOnCnvs = this.heightOnCnvs * (this.spriteWidth/this.spriteHeight);		
 };
 
 Object.prototype.draw = function(){
@@ -64,13 +63,13 @@ function clearCtxObject(ctx){
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
+
 function Box(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.spriteX = 0;
 	this.spriteY = 0;
 	this.spriteWidth = 88;
 	this.spriteHeight = 88;
-	this.proportion = [1,1];
 	
 	this.heightPerc = heightPerc;
 	this.offsetXPerc = offsetXPerc;
@@ -78,7 +77,7 @@ function Box(heightPerc, offsetXPerc, offsetYPerc, speed){
 
 	this.speed = speed;
 	
-	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight, this.proportion,
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
 			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };
 
@@ -88,7 +87,6 @@ function Box2(heightPerc, offsetXPerc, offsetYPerc, speed){
 	this.spriteY = 89;
 	this.spriteWidth = 172;
 	this.spriteHeight = 88;
-	this.proportion = [1,2];
 	
 	this.heightPerc = heightPerc;
 	this.offsetXPerc = offsetXPerc;
@@ -96,39 +94,23 @@ function Box2(heightPerc, offsetXPerc, offsetYPerc, speed){
 
 	this.speed = speed;
 	
-	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight, this.proportion,
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
 			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };
 
-function Block1(heightPerc, offsetXPerc, offsetYPerc, speed){
+function Box3(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
-	this.spriteX = 89;
+	this.spriteX = 252;
 	this.spriteY = 0;
-	this.spriteWidth = 44;
-	this.spriteHeight = 36;
-	this.proportion = [1,1];
-
-	this.speed = speed;
-	
-	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,  this.proportion,
-			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
-};
-
-
-
-function Block2(heightPerc, offsetXPerc, offsetYPerc, speed){
-	//settings
-	this.spriteX = 134;
-	this.spriteY = 0;
-	this.spriteWidth = 44;
-	this.spriteHeight = 27;
-	this.proportion = [3,2];
+	this.spriteWidth = 88;
+	this.spriteHeight = 172;
 	
 	this.heightPerc = heightPerc;
 	this.offsetXPerc = offsetXPerc;
 	this.offsetYPerc = offsetYPerc;
+
 	this.speed = speed;
 	
-	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight, this.proportion,
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
 			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };
