@@ -31,13 +31,9 @@ function init()
 	readXml(level);
 	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 4);
   $(window).load(function(){
+    gameOn = false;
     resizeAllBackgrounds(backgrounds);
     drawAllBackground(backgrounds);
-    
-  	
-  	gameOn = false;
-  	
-    resize();
 
   	$("#start_dialog").dialog({
   	    title: "Wilkommen im "+level+" Level",
@@ -211,11 +207,7 @@ function preloadImages(images, callback)
 //EventListener
 window.onresize = function() 
 {
-	resize();
-}
-
-function resize(){
-  resizeCanvases();
+	resizeCanvases();
   resizeAllBackgrounds(backgrounds);
   player.resize();
   for(i in objects){
@@ -223,6 +215,7 @@ function resize(){
   }
   if(!gameOn) drawAllBackground(backgrounds);
 }
+
 
 $(document).ready(function(){
 	console.log("xml wird versucht zu lesen:")

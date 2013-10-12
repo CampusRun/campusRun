@@ -189,15 +189,15 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	
 	
 	//EventListener
-//	window.onclick = function()
-//	{
-//		if(!player.isFalling) player.isJumping = true;
-//	}
-
-	
-	document.addEventListener('touchstart',function() 
+	window.onclick = function()
 	{
 		if(!player.isFalling) player.isJumping = true;
-	}, false);
+	}
+
+	
+	//document.addEventListener('touchstart',function() 
+	//{
+	//	if(!player.isFalling) player.isJumping = true;
+	//}, false);
 
 }
