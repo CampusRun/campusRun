@@ -51,7 +51,6 @@ function init()
 }
 
 function readXml(level){
-	console.log("in readXml")
 	objects = [];
 	backgrounds = [];
 	if(typeof xmlDoc != 'undefined'){
@@ -82,19 +81,19 @@ function readXml(level){
       objects.push( obj );
     });
   }else{ //Development mode
+    console.log("xml konnte nicht gelesen werden")
     backgroundSprite = new Image();
     backgroundSprite.src = '../img/bg_sprite_1.png';
-
-    console.log("xml konnte nicht gelesen werden")
     backgrounds.push( new Background(backgroundCtx, 0.3, 1152, 3) );
     backgrounds.push( new Background(backgroundCtx, 0.5, 0, 3) );
 
-    objects.push( new Box2(0.1, 0.5, 0.8, 2) );
-    objects.push( new Box2(0.1, 0.5, 0.7, 2) );
-    objects.push( new Box2(0.1, 0.56, 0.8, 2) );
-    objects.push( new Box2(0.1, 0.61, 0.6, 2) );
-    objects.push( new Box2(0.1, 0.61, 0.7, 2) );
-    objects.push( new Box2(0.1, 0.61, 0.8, 2) );
+    objects.push( new Box(0.1, 0.8, 0.8, 2) );
+    objects.push( new Box(0.1, 0.85, 0.8, 2) );
+    objects.push( new Box(0.1, 0.90, 0.8, 2) );
+    objects.push( new Box3(0.2, 0.95, 0.7, 2) );
+    objects.push( new Box3(0.2, 1.0, 0.7, 2) );
+    objects.push( new Box3(0.2, 1.05, 0.7, 2) );
+    objects.push( new Box2(0.1, 1.15, 0.8, 2) );
   }
 }
 
@@ -189,10 +188,8 @@ function preloadImages(images, callback)
 {
 	remaining = images.length;
 	for (var i=0; i < remaining; i++) {
-		console.log("vor image onload")
 		images[i].onload = function() 
 		{
-			console.log("in image onload")
 			--remaining;
 			if(remaining <= 0)
 			{
@@ -223,7 +220,6 @@ $(document).ready(function(){
 	//xmlhttp.open("GET","../xml/game.xml",false);
 	//xmlhttp.send();
 	//xmlDoc = xmlhttp.responseXML;
-	console.log("nach xml gelesen");
 
 	preloadImages(preloadArray, init);
 	init();

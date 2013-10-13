@@ -60,7 +60,6 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 		    }
 		    else {
 		      this.lifes -= 1;
-		      
 		      this.posX = this.initialStartX;
 		      this.posY = this.rebornStartY;
 		      this.isFalling = true;
@@ -78,6 +77,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 		this.reposition();
 		if(this.isJumping){this.jump();}
 		if(this.isFalling){this.fall();}
+		
 
 		if(this.yCollisionStarted){
 			if(!this.collisionY() && !this.isJumping){
@@ -86,6 +86,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 				this.yCollisionStarted = false;
 			}	
 		}
+
 		this.ctx.drawImage(this.img, this.spriteX, 0, this.spriteWidth, this.imgHeight,
 			this.posX, this.posY, this.width, this.height);
 	}
@@ -114,6 +115,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 		}
 		var fallCnt = ((Math.PI/2)/this.framesPerFall)*this.fallFrame;
 		var fallHeight = (Math.cos(fallCnt)-1)*this.maxFallHeight;
+		
 		this.posY = this.fallRef-fallHeight;
 		this.fallFrame++;
 		if((this.fallFrame > this.framesPerFall) || this.collisionY())
@@ -121,19 +123,20 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 			this.fallFrame = 0;
 			this.isFalling = false;
 		}
+		if( this.collisionX() ) this.posY = this.collisionX().posY-this.height;
 	}
 	
 	Player.prototype.collisionX = function()
 	{
 		for (var i = 0; i < this.objects.length; i++) 
 		{
-			if(this.posY+this.height-5 > this.objects[i].posY)
+			if(this.posY+this.height > this.objects[i].posY)
 			{
 				if(this.posX+this.width >= this.objects[i].posX)
 				{
 					if(!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))
 					{
-						return this.objects[i];					
+						return this.objects[i];
 					}
 				}
 			}
@@ -147,9 +150,9 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 		{
 			if((this.posX >= this.objects[i].posX) && (!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))
 				||
-			  (( this.posX+this.width-5 >= this.objects[i].posX) && (!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))))
+			  (( this.posX+this.width >= this.objects[i].posX) && (!(this.posX >= this.objects[i].posX+this.objects[i].widthOnCnvs))))
 			{
-				if(this.posY+this.height+3 > this.objects[i].posY)
+				if(this.posY+this.height+5 > this.objects[i].posY)
 				{
 					this.yCollisionStarted = true;
 					return this.objects[i];

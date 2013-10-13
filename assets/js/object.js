@@ -28,7 +28,7 @@ Object.prototype.setOnCnvsProperties = function(){
 	this.posX = this.ctx.canvas.width*this.offsetXPerc;
 	this.posY = this.ctx.canvas.height*this.offsetYPerc;
 	this.heightOnCnvs = this.ctx.canvas.height*this.heightPerc;
-	this.widthOnCnvs = this.heightOnCnvs * (this.spriteWidth/this.spriteHeight);		
+	this.widthOnCnvs = this.heightOnCnvs * (this.spriteWidth/this.spriteHeight);	
 };
 
 Object.prototype.draw = function(){
