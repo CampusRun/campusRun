@@ -12,7 +12,7 @@ playerCtx = playerCnvs.getContext('2d');
 preloadArray = new Array();
 
 playerImg = new Image();
-playerImg.src = '../img/player_asi_2.png';
+playerImg.src = '../img/player.png';
 objectsSprite = new Image();
 objectsSprite.src = '../img/objectsSprite.png'
 lifeImg = new Image();
@@ -29,8 +29,8 @@ function init()
  
 	level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
 	readXml(level);
-	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 8);
-  gameOn = false;
+	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 4);
+	gameOn = false;	
   
   $(window).load(function(){
     resizeAllBackgrounds(backgrounds);
@@ -88,8 +88,7 @@ function readXml(level){
     backgroundSprite = new Image();
     backgroundSprite.src = '../img/bg_sprite_1.png';
 
-    console.log("xml konnte nicht gelesen werden")
-    backgrounds.push( new Background(backgroundCtx, 0.3, 1152, 3) );
+    console.log("xml konnte nicht gelesen werden");
     backgrounds.push( new Background(backgroundCtx, 0.8, 576, 3) );
     backgrounds.push( new Background(backgroundCtx, 0.5, 0, 3) );
 
@@ -158,15 +157,6 @@ function afterVictory(){
             url: "http://campusrun.connectiv.info/statistics.php",
             data: jsonData,
             dataType: "json",
-            error: function(XHR, status, error){
-              console.log("error")
-              console.log(XHR)
-              console.log(status)
-              console.log(error)
-            },
-            success: function() {
-              console.log("success")
-            },
             complete: function() {
               console.log("complete")
               url = window.location.href
@@ -181,9 +171,6 @@ function afterVictory(){
               window.location.href = url
             }
           });
-      },
-      Cancel: function () {
-          $(this).dialog("close");
       }
     }
   });
@@ -230,7 +217,7 @@ $(document).ready(function(){
 	xmlhttp.open("GET","../xml/game.xml",false);
 	xmlhttp.send();
 	xmlDoc = xmlhttp.responseXML;
-	console.log("nach xml gelesen");
+	//console.log("nach xml gelesen");
 
 	preloadImages(preloadArray, init);
 	init();

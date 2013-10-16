@@ -47,6 +47,7 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	this.afterYCollision = false;
 	this.yCollisionStarted = false;
 	
+	
 	Player.prototype.draw = function()
 	{
 		this.ctx.clearRect(0, 0, this.cnvsWidth, this.cnvsHeight);
@@ -192,15 +193,14 @@ function Player(ctx, img, heightPerc, posXPerc, posYPerc, objects, spriteNum)
 	
 	
 	//EventListener
-	window.onclick = function()
+//	window.onclick = function()
+//	{
+//		if(!player.isFalling) player.isJumping = true;
+//	}
+
+	document.addEventListener('touchstart',function() 
 	{
 		if(!player.isFalling) player.isJumping = true;
-	}
-
-	
-	//document.addEventListener('touchstart',function() 
-	//{
-	//	if(!player.isFalling) player.isJumping = true;
-	//}, false);
+	}, false);
 
 }
