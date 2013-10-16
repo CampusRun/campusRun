@@ -12,7 +12,7 @@ playerCtx = playerCnvs.getContext('2d');
 preloadArray = new Array();
 
 playerImg = new Image();
-playerImg.src = '../img/player.png';
+playerImg.src = '../img/player_asi_2.png';
 objectsSprite = new Image();
 objectsSprite.src = '../img/objectsSprite.png'
 lifeImg = new Image();
@@ -29,11 +29,14 @@ function init()
  
 	level = ( (RegExp('level' + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] ) || 1;
 	readXml(level);
-	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 4);
+	player = new Player(playerCtx, playerImg, 0.3, 0.2, 0.1, objects, 8);
+  gameOn = false;
+  
   $(window).load(function(){
-    gameOn = false;
     resizeAllBackgrounds(backgrounds);
     drawAllBackground(backgrounds);
+  	
+    resize();
 
   	$("#start_dialog").dialog({
   	    title: "Wilkommen im "+level+" Level",
@@ -51,6 +54,7 @@ function init()
 }
 
 function readXml(level){
+	console.log("in readXml")
 	objects = [];
 	backgrounds = [];
 	if(typeof xmlDoc != 'undefined'){
@@ -81,19 +85,20 @@ function readXml(level){
       objects.push( obj );
     });
   }else{ //Development mode
-    console.log("xml konnte nicht gelesen werden")
     backgroundSprite = new Image();
     backgroundSprite.src = '../img/bg_sprite_1.png';
+
+    console.log("xml konnte nicht gelesen werden")
     backgrounds.push( new Background(backgroundCtx, 0.3, 1152, 3) );
+    backgrounds.push( new Background(backgroundCtx, 0.8, 576, 3) );
     backgrounds.push( new Background(backgroundCtx, 0.5, 0, 3) );
 
-    objects.push( new Box(0.1, 0.8, 0.8, 2) );
-    objects.push( new Box(0.1, 0.85, 0.8, 2) );
-    objects.push( new Box(0.1, 0.90, 0.8, 2) );
-    objects.push( new Box3(0.2, 0.95, 0.7, 2) );
-    objects.push( new Box3(0.2, 1.0, 0.7, 2) );
-    objects.push( new Box3(0.2, 1.05, 0.7, 2) );
-    objects.push( new Box2(0.1, 1.15, 0.8, 2) );
+    objects.push( new Box2(0.1, 0.5, 0.8, 2) );
+    objects.push( new Box2(0.1, 0.5, 0.7, 2) );
+    objects.push( new Box2(0.1, 0.56, 0.8, 2) );
+    objects.push( new Box2(0.1, 0.61, 0.6, 2) );
+    objects.push( new Box2(0.1, 0.61, 0.7, 2) );
+    objects.push( new Box2(0.1, 0.61, 0.8, 2) );
   }
 }
 
@@ -188,8 +193,10 @@ function preloadImages(images, callback)
 {
 	remaining = images.length;
 	for (var i=0; i < remaining; i++) {
+		console.log("vor image onload")
 		images[i].onload = function() 
 		{
+			console.log("in image onload")
 			--remaining;
 			if(remaining <= 0)
 			{
@@ -203,7 +210,11 @@ function preloadImages(images, callback)
 //EventListener
 window.onresize = function() 
 {
-	resizeCanvases();
+	resize();
+}
+
+function resize(){
+  resizeCanvases();
   resizeAllBackgrounds(backgrounds);
   player.resize();
   for(i in objects){
@@ -212,14 +223,14 @@ window.onresize = function()
   if(!gameOn) drawAllBackground(backgrounds);
 }
 
-
 $(document).ready(function(){
 	console.log("xml wird versucht zu lesen:")
 
-	//xmlhttp = new XMLHttpRequest();
-	//xmlhttp.open("GET","../xml/game.xml",false);
-	//xmlhttp.send();
-	//xmlDoc = xmlhttp.responseXML;
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET","../xml/game.xml",false);
+	xmlhttp.send();
+	xmlDoc = xmlhttp.responseXML;
+	console.log("nach xml gelesen");
 
 	preloadImages(preloadArray, init);
 	init();

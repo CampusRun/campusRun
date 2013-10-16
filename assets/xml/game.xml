@@ -3,154 +3,331 @@
 <game>
   <level id="1">
     <background spriteCnt="3" sprite="bg_sprite_1.png">
-      <layer spriteY="1152" speed="0.6"></layer>
+      <layer spriteY="576" speed="0.6"></layer>
       <layer spriteY="0" speed="1.0"></layer>
     </background>
-
     <description>Du bist neu am Campus Lingen. Im ersten Semester hast du vor allem Orientierungsprobleme und der eigene Wohnungsschlüssel ist auch nie zu finden.</description>
-    
     <enemylist>
+      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="0.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box3"></enemy>
+      <enemy drawX="1.10" drawY="0.7" heightPerc="0.1" speed="2" type="Box3"></enemy>
+      <enemy drawX="1.20" drawY="0.6" heightPerc="0.1" speed="2" type="Citymap"></enemy>
 
-      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.7" drawY="0.8" heightPerc="0.1" speed="2" type="Box3"></enemy>
+      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Key"></enemy>
 
+      <enemy drawX="2.3" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="2.3" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="2.35" drawY="0.6" heightPerc="0.1" speed="2" type="Citymap"></enemy>
 
-      <enemy drawX="1.3" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-    
+      <enemy drawX="2.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="2.9" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
 
-      <enemy drawX="1.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
- 
+      <enemy drawX="3.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="3.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="3.2" drawY="0.6" heightPerc="0.1" speed="2" type="Citymap"></enemy>
 
-      <enemy drawX="1.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="3.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
 
-      <enemy drawX="2.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="2.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="2.2" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="3.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="3.9" drawY="0.7" heightPerc="0.1" speed="2" type="Box3"></enemy>
+      <enemy drawX="4.0" drawY="0.6" heightPerc="0.1" speed="2" type="Key"></enemy>
+      
+      <enemy drawX="4.4" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="4.4" drawY="0.7" heightPerc="0.1" speed="2" type="Citymap"></enemy>
+      
+      <enemy drawX="4.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      
+      <enemy drawX="4.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="4.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      
+      <enemy drawX="5.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="5.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box3"></enemy>
+      <enemy drawX="5.3" drawY="0.6" heightPerc="0.1" speed="2" type="Citymap"></enemy>
+      
+      <enemy drawX="5.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="5.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      
+      <enemy drawX="5.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="5.9" drawY="0.7" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="5.9" drawY="0.6" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="5.95" drawY="0.5" heightPerc="0.1" speed="2" type="Key"></enemy>
+      
+      <enemy drawX="6.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
+      <enemy drawX="6.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box3"></enemy>
 
-      <enemy drawX="2.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-
-      <enemy drawX="2.7" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="2.7" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
-
-      <enemy drawX="2.9" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
-
-      <enemy drawX="3.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="3.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="3.2" drawY="0.6" heightPerc="0.1" speed="2" type="Box"></enemy>
-
-      <enemy drawX="3.4" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-
-      <enemy drawX="3.7" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="6.7" drawY="0.8" heightPerc="0.1" speed="2" type="Finish"></enemy>
 
     </enemylist>
   </level>
 
-  <level id="2" sprite="bg_sprite_1.png">
-    <background spriteCnt="5">
-      <layer spriteY="625" speed="0.5"></layer>
-      <layer spriteY="0" speed="0.8"></layer>
+  <level id="2">
+    <background spriteCnt="2" sprite="bg_sprite_2.png">
+      <layer spriteY="576" speed="0.6"></layer>
+      <layer spriteY="0" speed="1.0"></layer>
     </background>
 
     <description>Nach den ersten Klausuren kommen auch gleich die ersten Abgabetermine für Hausarbeiten und alle Klausuren hast du auch nicht im ersten Versuch bestanden.</description>
     
     <enemylist>
-      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.5" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.7" drawY="0.6" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.7" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.7" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+        <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2.5" type="Box2"></enemy>
+        <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2.5" type="Box2"></enemy>
 
-      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+        <enemy drawX="1.0" drawY="0.7" heightPerc="0.1" speed="2.5" type="Box3"></enemy>
+        <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2.5" type="Box3"></enemy>
+        <enemy drawX="1.1" drawY="0.6" heightPerc="0.1" speed="2.5" type="PTP"></enemy>
 
-      <enemy drawX="1.4" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.4" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+        <enemy drawX="1.4" drawY="0.8" heightPerc="0.1" speed="2.5" type="Box2"></enemy>
+        <enemy drawX="1.4" drawY="0.7" heightPerc="0.1" speed="2.5" type="Box2"></enemy>
 
-      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+        <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2.5" type="Box1"></enemy>
+        <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2.5" type="HA"></enemy>
 
+        <enemy drawX="2.2" drawY="0.8" heightPerc="0.1" speed="2.5" type="Box1"></enemy>
 
-      <enemy drawX="1.9" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.9" drawY="0.6" heightPerc="0.1" speed="2" type="Box2"></enemy>
+        <enemy drawX="2.4" drawY="0.8" heightPerc="0.1" speed="2.5" type="Box1"></enemy>
+        <enemy drawX="2.4" drawY="0.7" heightPerc="0.1" speed="2.5" type="Box1"></enemy>
+        <enemy drawX="2.4" drawY="0.6" heightPerc="0.1" speed="2.5" type="Klausur"></enemy>
 
+        <enemy drawX="2.8" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+        <enemy drawX="2.7" drawY="0.7" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+        <enemy drawX="2.6" drawY="0.6" heightPerc="0.1" speed="2.2" type="Box3"></enemy>
+        <enemy drawX="2.6" drawY="0.7" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+        <enemy drawX="2.6" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+        <enemy drawX="2.7" drawY="0.5" heightPerc="0.1" speed="2.2" type="PTP"></enemy>
 
-      <enemy drawX="2.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="2.2" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="2.2" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+        <enemy drawX="2.9" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+
+        <enemy drawX="3.2" drawY="0.7" heightPerc="0.1" speed="2.2" type="HA"></enemy>
+        <enemy drawX="3.2" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+
+        <enemy drawX="3.4" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+
+        <enemy drawX="3.7" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+        <enemy drawX="3.7" drawY="0.7" heightPerc="0.1" speed="2.2" type="Box3"></enemy>
+        <enemy drawX="3.8" drawY="0.6" heightPerc="0.1" speed="2.2" type="Klausur"></enemy>
+
+        <enemy drawX="4.2" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+        <enemy drawX="4.2" drawY="0.7" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+
+        <enemy drawX="4.5" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+        <enemy drawX="4.5" drawY="0.7" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+
+        <enemy drawX="4.9" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+        <enemy drawX="4.9" drawY="0.7" heightPerc="0.1" speed="2.2" type="HA"></enemy>
+
+        <enemy drawX="5.3" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box3"></enemy>
+        <enemy drawX="5.4" drawY="0.7" heightPerc="0.1" speed="2.2" type="PTP"></enemy>
+
+        <enemy drawX="5.6" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+        <enemy drawX="5.6" drawY="0.7" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+        <enemy drawX="5.6" drawY="0.6" heightPerc="0.1" speed="2.2" type="Box3"></enemy>
+        <enemy drawX="5.7" drawY="0.5" heightPerc="0.1" speed="2.2" type="PTP"></enemy>
+
+        <enemy drawX="6.0" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box3"></enemy>
+        <enemy drawX="6.1" drawY="0.7" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+        <enemy drawX="6.18" drawY="0.6" heightPerc="0.1" speed="2.2" type="Box1"></enemy>
+
+        <enemy drawX="6.5" drawY="0.8" heightPerc="0.1" speed="2.2" type="Box2"></enemy>
+        <enemy drawX="6.55" drawY="0.7" heightPerc="0.1" speed="2.2" type="Klausur"></enemy>
+
+        <enemy drawX="7.0" drawY="0.8" heightPerc="0.1" speed="2.2" type="Finish"></enemy>
     </enemylist>
   </level>
 
-    <level id="3" sprite="bg_sprite_1.png">
-    <background spriteCnt="5">
-      <layer spriteY="1875" speed="0.5"></layer>
-      <layer spriteY="2500" speed="1.0"></layer>
-      <layer spriteY="1250" speed="0.8"></layer>
+    <level id="3" sprite="bg_sprite_3.png">
+
+    <background spriteCnt="2" sprite="bg_sprite_3.png">
+      <layer spriteY="576" speed="0.6"></layer>
+      <layer spriteY="0" speed="1.0"></layer>
     </background>
 
     <description>Nach dem ersten überstandenen Jahr in Lingen geht es zusammen mit deinem Kommilitonen auf ein Bier in die Stadt. Tja und wie kann es anderes sein es eskaliert und du hast Probleme den Weg nachhause zu finden.   </description>
     
-    <enemylist sprite="...">
-      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+    <enemylist>
+        <enemy drawX="0.8" drawY="0.8" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+        <enemy drawX="0.9" drawY="0.8" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
 
-      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
-      
-      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+        <enemy drawX="1.2" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="1.23" drawY="0.7" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="1.5" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+
+        <enemy drawX="1.9" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="1.92" drawY="0.7" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="2.4" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+
+        <enemy drawX="3.0" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="3.0" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+
+        <enemy drawX="3.4" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+        <enemy drawX="3.4" drawY="0.7" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="3.8" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+        <enemy drawX="3.8" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box3"></enemy>
+        <enemy drawX="3.9" drawY="0.6" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="4.4" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="4.4" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box3"></enemy>
+
+        <enemy drawX="4.7" drawY="0.8" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+        <enemy drawX="4.85" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+        <enemy drawX="4.85" drawY="0.7" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="5.2" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+        <enemy drawX="5.2" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+
+        <enemy drawX="5.6" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="5.7" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="5.8" drawY="0.6" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="5.9" drawY="0.5" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="5.95" drawY="0.4" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="6.5" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box3"></enemy>
+        <enemy drawX="6.5" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="6.58" drawY="0.6" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="6.9" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+
+        <enemy drawX="7.2" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+
+        <enemy drawX="7.4" drawY="0.8" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="7.65" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+        <enemy drawX="7.65" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+
+        <enemy drawX="7.95" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+        <enemy drawX="7.95" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+        <enemy drawX="7.95" drawY="0.6" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+
+        <enemy drawX="8.1" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box3"></enemy>
+
+
+        <enemy drawX="8.25" drawY="0.6" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="8.35" drawY="0.5" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="8.45" drawY="0.4" heightPerc="0.1" speed="2.8" type="Box3"></enemy>
+        <enemy drawX="8.55" drawY="0.3" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="8.75" drawY="0.7" heightPerc="0.1" speed="2.8" type="Box3"></enemy>
+        <enemy drawX="8.75" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box1"></enemy>
+
+        <enemy drawX="9.2" drawY="0.8" heightPerc="0.1" speed="2.8" type="Box2"></enemy>
+        <enemy drawX="9.25" drawY="0.7" heightPerc="0.1" speed="2.8" type="Bier6"></enemy>
+
+        <enemy drawX="9.7" drawY="0.8" heightPerc="0.1" speed="2.8" type="Finish"></enemy>
     </enemylist>
   </level>
 
-    <level id="4" sprite="bg_sprite_1.png">
-    <background spriteCnt="5">
-      <layer spriteY="625" speed="0.5"></layer>
+    <level id="4">
+    <background spriteCnt="3" sprite="bg_sprite_1.png">
+      <layer spriteY="576" speed="0.5"></layer>
       <layer spriteY="0" speed="0.8"></layer>
     </background>
 
     <description>Durch dein Saufgelage im dritten Semester blieb das Lernen auf der Strecke und du hast einen riesen Haufen Nachreibeklausuren zu bewältigen. </description>
     
     <enemylist>
-      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="0.9" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box3"></enemy>
+      <enemy drawX="1.10" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box3"></enemy>
+      <enemy drawX="1.20" drawY="0.6" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
 
-      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="1.7" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box3"></enemy>
+      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+
+      <enemy drawX="2.3" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="2.3" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="2.35" drawY="0.6" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+
+      <enemy drawX="2.6" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="2.7" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="2.8" drawY="0.6" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="2.9" drawY="0.5" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="2.95" drawY="0.4" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+
+
+      <enemy drawX="3.4" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="3.4" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+
+      <enemy drawX="3.5" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="3.5" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="3.5" drawY="0.6" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+
+      <enemy drawX="3.9" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+
+      <enemy drawX="4.4" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="4.4" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box3"></enemy>
+      <enemy drawX="4.5" drawY="0.6" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
       
-      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="4.7" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="4.7" drawY="0.7" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+      
+      <enemy drawX="4.9" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      
+      <enemy drawX="5.2" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="5.2" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      
+      <enemy drawX="5.5" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="5.5" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box3"></enemy>
+      <enemy drawX="5.6" drawY="0.6" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+      
+      <enemy drawX="5.9" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="5.9" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      
+      <enemy drawX="6.2" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="6.2" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="6.2" drawY="0.6" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="6.3" drawY="0.5" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+      
+      <enemy drawX="7.0" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box1"></enemy>
+      <enemy drawX="7.0" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box3"></enemy>
+
+      <enemy drawX="7.4" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="7.5" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box3"></enemy>
+      <enemy drawX="7.6" drawY="0.6" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+
+      <enemy drawX="8.0" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="8.1" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="8.2" drawY="0.6" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="8.3" drawY="0.5" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="8.35" drawY="0.4" heightPerc="0.1" speed="3.0" type="Klausur5"></enemy>
+
+      <enemy drawX="8.7" drawY="0.8" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="8.8" drawY="0.7" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="8.9" drawY="0.6" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+      <enemy drawX="9.0" drawY="0.5" heightPerc="0.1" speed="3.0" type="Box2"></enemy>
+
+
+      <enemy drawX="9.4" drawY="0.8" heightPerc="0.1" speed="3.0" type="Finish"></enemy>
+
     </enemylist>
   </level>
 
-      <level id="5" sprite="bg_sprite_1.png">
-    <background spriteCnt="5">
-      <layer spriteY="625" speed="0.5"></layer>
+  <level id="5">
+    <background spriteCnt="3" sprite="bg_sprite_1.png">
+      <layer spriteY="576" speed="0.5"></layer>
       <layer spriteY="0" speed="0.8"></layer>
     </background>
 
     <description>Du hast natürlich nicht alle PTP´s auf grün und musst bis zum Stichtag noch nacharbeiten. In viele Modulen gibt es diesmal auch keine Klausur sondern einen Vortrag zu bearbeiten.</description>
     
     <enemylist>
-      <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
-      <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="0.8" drawY="0.8" heightPerc="0.1" speed="3.5" type="Box1"></enemy>
+      <enemy drawX="0.8" drawY="0.7" heightPerc="0.1" speed="3.5" type="Box1"></enemy>
 
-      <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
-      
-      <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
+      <enemy drawX="1.2" drawY="0.8" heightPerc="0.1" speed="3.5" type="Box2"></enemy>
+      <enemy drawX="1.2" drawY="0.7" heightPerc="0.1" speed="3.5" type="Box2"></enemy>
+
+      <enemy drawX="1.6" drawY="0.8" heightPerc="0.1" speed="3.5" type="Box3"></enemy>
+      <enemy drawX="1.7" drawY="0.7" heightPerc="0.1" speed="3.5" type="Box3"></enemy>
+      <enemy drawX="1.8" drawY="0.6" heightPerc="0.1" speed="3.5" type="Box1"></enemy>
     </enemylist>
   </level>
 
-      <level id="6" sprite="bg_sprite_1.png">
-    <background spriteCnt="5">
-      <layer spriteY="625" speed="0.5"></layer>
+      <level id="6">
+    <background spriteCnt="3" sprite="bg_sprite_1.png">
+      <layer spriteY="576" speed="0.5"></layer>
       <layer spriteY="0" speed="0.8"></layer>
     </background>
 
@@ -158,12 +335,12 @@
     
     <enemylist>
       <enemy drawX="0.5" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="0.6" drawY="0.7" heightPerc="0.1" speed="2" type="Box1"></enemy>
       <enemy drawX="0.6" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
 
       <enemy drawX="1.0" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
       <enemy drawX="1.1" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>
-      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box"></enemy>
+      <enemy drawX="1.1" drawY="0.8" heightPerc="0.1" speed="2" type="Box1"></enemy>
       
       <enemy drawX="1.8" drawY="0.8" heightPerc="0.1" speed="2" type="Box2"></enemy>
       <enemy drawX="1.8" drawY="0.7" heightPerc="0.1" speed="2" type="Box2"></enemy>

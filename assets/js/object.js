@@ -28,7 +28,7 @@ Object.prototype.setOnCnvsProperties = function(){
 	this.posX = this.ctx.canvas.width*this.offsetXPerc;
 	this.posY = this.ctx.canvas.height*this.offsetYPerc;
 	this.heightOnCnvs = this.ctx.canvas.height*this.heightPerc;
-	this.widthOnCnvs = this.heightOnCnvs * (this.spriteWidth/this.spriteHeight);	
+	this.widthOnCnvs = this.heightOnCnvs * (this.spriteWidth/this.spriteHeight);		
 };
 
 Object.prototype.draw = function(){
@@ -64,7 +64,7 @@ function clearCtxObject(ctx){
 }
 
 
-function Box(heightPerc, offsetXPerc, offsetYPerc, speed){
+function Box1(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.spriteX = 0;
 	this.spriteY = 0;
@@ -85,7 +85,7 @@ function Box2(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
 	this.spriteX = 0;
 	this.spriteY = 89;
-	this.spriteWidth = 172;
+	this.spriteWidth = 176;
 	this.spriteHeight = 88;
 	
 	this.heightPerc = heightPerc;
@@ -100,10 +100,10 @@ function Box2(heightPerc, offsetXPerc, offsetYPerc, speed){
 
 function Box3(heightPerc, offsetXPerc, offsetYPerc, speed){
 	//settings
-	this.spriteX = 252;
-	this.spriteY = 0;
-	this.spriteWidth = 88;
-	this.spriteHeight = 172;
+	this.spriteX = 0;
+	this.spriteY = 178;
+	this.spriteWidth = 264;
+	this.spriteHeight = 88;
 	
 	this.heightPerc = heightPerc;
 	this.offsetXPerc = offsetXPerc;
@@ -114,3 +114,193 @@ function Box3(heightPerc, offsetXPerc, offsetYPerc, speed){
 	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
 			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
 };
+
+function Citymap(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 88;
+	this.spriteY = 0;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function Key(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 176;
+	this.spriteY = 0;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function Finish(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 176;
+	this.spriteY = 89;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function PTP(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 264;
+	this.spriteY = 0;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function PTP_ROT(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 352;
+	this.spriteY = 0;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function HA(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 264;
+	this.spriteY = 89;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function Klausur(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 264;
+	this.spriteY = 178;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function Klausur5(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 352;
+	this.spriteY = 178;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+
+function Bier6(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 352;
+	this.spriteY = 89;
+	this.spriteWidth = 97;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function Hut(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 449;
+	this.spriteY = 89;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+function PTP_Gelb(heightPerc, offsetXPerc, offsetYPerc, speed){
+	//settings
+	this.spriteX = 440;
+	this.spriteY = 0;
+	this.spriteWidth = 88;
+	this.spriteHeight = 88;
+	
+	this.heightPerc = heightPerc;
+	this.offsetXPerc = offsetXPerc;
+	this.offsetYPerc = offsetYPerc;
+
+	this.speed = speed;
+	
+	return new Object(this.spriteX, this.spriteY, this.spriteWidth, this.spriteHeight,
+			this.heightPerc, this.offsetXPerc, this.offsetYPerc, this.speed);
+};
+
+
